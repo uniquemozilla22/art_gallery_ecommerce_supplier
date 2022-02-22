@@ -1,0 +1,91 @@
+.login__banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #e8ebfe60;
+  padding: 2rem;
+  width: 40vw;
+}
+
+.login__banner h2 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+.login__banner .login__banner__icons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.login__banner .login__banner__icons .icon__container {
+  background-color: #ff5959;
+  padding: 1.5rem;
+  border-radius: 50%;
+  color: aliceblue;
+}
+
+.login__banner .login__banner__icons .icon__container .icon {
+  font-size: 24px;
+}
+
+.login__banner .login__banner__icons .banner_icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__banner .login__banner__icons .banner_icon p {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.login__banner h3 {
+  font-weight: regular;
+  font-size: 30px;
+  margin-top: 2rem;
+}
+
+.login__banner h3 span {
+  font-weight: bold;
+  font-size: 40px;
+  color: #ff5959;
+}
+
+.login__banner .content {
+  font-weight: light;
+  font-size: 20px;
+  align: center;
+}
+
+.login__banner .content span {
+  color: #ff5959;
+}
+
+.login__banner .link__container {
+  font-size: 20px;
+  font-weight: regular;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.login__banner .link__container p {
+  margin: 0;
+}
+
+.login__banner .link__container a {
+  color: #ff5959;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .login__banner {
+    display: none;
+  }
+}
