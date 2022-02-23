@@ -37,8 +37,6 @@ const RegisterForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.Loader(true);
-
     let validationData = validation;
     validationData = EmailHandler(validationData);
     validationData = passwordHandler(validationData);
@@ -53,8 +51,6 @@ const RegisterForm = (props) => {
       validationData.mobile_no.validated
     ) {
       props.Register(data);
-    } else {
-      props.Loader(false);
     }
   };
 
