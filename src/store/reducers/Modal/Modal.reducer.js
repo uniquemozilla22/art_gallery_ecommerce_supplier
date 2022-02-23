@@ -5,7 +5,7 @@ import {
   HELP_CENTER,
   LOGIN_MODAL,
   FORGOT__MODEL,
-} from "../actions/Types/Types";
+} from "../../Types";
 
 const initialState = {
   category: false,

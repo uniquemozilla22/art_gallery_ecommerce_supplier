@@ -1,4 +1,4 @@
-import { ERROR, HIDE_MESSAGE, SUCCESS, WARNING } from "../actions/Types/Types";
+import { ERROR, HIDE_MESSAGE, SUCCESS, WARNING } from "../../Types";
 
 const initialState = {
   show: false,
