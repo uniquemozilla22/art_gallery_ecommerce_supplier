@@ -3,6 +3,7 @@ import classes from "./RegisterForm.module.css";
 import { FacebookOutlined, Google, Twitter } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Fade } from "react-reveal";
 // import RegisterAction from "../../store/actions/Authentication/Register/RegisterAction";
 // import { hideLoading, showLoading } from "../../store/actions/Loading/Loading";
 // import { useNavigate } from "react-router";
@@ -121,7 +122,7 @@ const RegisterForm = (props) => {
   };
 
   return (
-    <div>
+    <Fade>
       <div className={classes.register__form}>
         <div className={"" + classes.title__register}>
           <h1>Register.</h1>
@@ -334,7 +335,7 @@ const RegisterForm = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </Fade>
   );
 };
 

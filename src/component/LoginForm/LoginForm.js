@@ -147,14 +147,13 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
-  // return {
-  //   Login: (email, password) => dispatch(LoginAction({ email, password })),
-  //   Loader: (data) =>
-  //     data ? dispatch(showLoading()) : dispatch(hideLoading()),
-  //   GoogleLogin: () => dispatch(GoogleAuthAction()),
-  //   toggleForgetPassword: () => dispatch({ type: "FORGOT__MODEL" }),
-  // };
+  return {
+    //   Login: (email, password) => dispatch(LoginAction({ email, password })),
+    // Loader: (data) =>
+    // data ? dispatch(showLoading()) : dispatch(hideLoading()),
+    //   GoogleLogin: () => dispatch(GoogleAuthAction()),
+    //   toggleForgetPassword: () => dispatch({ type: "FORGOT__MODEL" }),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

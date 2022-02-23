@@ -11,3 +11,7 @@ export const ERROR = "ERROR";
 export const HIDE_MESSAGE = "HIDE_MESSAGE";
 export const SUCCESS = "SUCCESS";
 export const WARNING = "WARNING";
+
+// Loader
+export const HIDE_LOADING = "HIDE_LOADING";
+export const SHOW_LOADING = "SHOW_LOADING";
