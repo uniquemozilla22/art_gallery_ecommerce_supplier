@@ -113,7 +113,6 @@ const RegisterForm = (props) => {
     } else {
       valid.mobile_no = { validated: true, message: "" };
     }
-
     return valid;
   };
 
