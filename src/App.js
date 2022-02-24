@@ -9,19 +9,22 @@ import Register from "./pages/register/Register.page";
 
 function App() {
   return (
-    <div className="supplier__container ">
-      <Layout>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/users/resetPassword/:id/:token"
-            element={<ForgotPassword />}
-          />
-          <Route path="/" exact element={<HomePage />} />
-        </Routes>
-      </Layout>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/users/resetPassword/:id/:token"
+          element={<ForgotPassword />}
+        />
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/my_arts" exact element={<HomePage />} />
+        <Route path="/reviews" exact element={<HomePage />} />
+        <Route path="/my_orders" exact element={<HomePage />} />
+        <Route path="/finance" exact element={<HomePage />} />
+        <Route path="/bids" exact element={<HomePage />} />
+      </Routes>
+    </Layout>
   );
 }
 

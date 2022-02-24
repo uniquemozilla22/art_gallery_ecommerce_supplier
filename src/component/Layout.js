@@ -12,8 +12,6 @@ const Layout = (props) => {
   const [token, setToken] = useState(props.user.token);
 
   useEffect(() => {
-    console.log("hello");
-    console.log(location.pathname);
     setToken(props.user.token);
     if (props.user.token !== null) {
       if (SidebarRestricted.includes(location.pathname)) {

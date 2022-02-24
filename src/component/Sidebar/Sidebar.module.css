@@ -1,0 +1,84 @@
+.container__sidebar {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  background: #eef2ff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.sidebar {
+  width: 100%;
+  background: #eef2ff;
+  padding: 24px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  color: rgb(102, 112, 133);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: regular;
+}
+
+.sidebar_header {
+  display: flex;
+  gap: 8px;
+  padding: 12px 10px;
+  align-items: center;
+}
+
+.sidebar_body {
+  display: flex;
+  flex-direction: column;
+}
+.sidebar_body .Accordion__container {
+  box-shadow: none;
+  background: transparent;
+}
+
+.sidebar_body .Accordion__container a {
+  text-decoration: none;
+  color: #1d2939;
+}
+.sidebar_body .accordion__content {
+  margin: 0.5rem;
+}
+.sidebar_body .accordion__content a {
+  text-decoration: none;
+  color: #1d2939;
+  width: 100%;
+  padding: 1rem;
+}
+
+.sidebar_body > a {
+  text-decoration: none;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0px;
+  color: rgb(102, 112, 133);
+}
+.sidebar_body span {
+  color: rgb(102, 112, 133);
+}
+
+.sidebar_body .active {
+  color: #676fa3;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.sidebar_body a div {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.sidebar_body .count {
+  background: rgb(242, 244, 247);
+  padding: 2.5px 6px;
+  color: rgb(52, 64, 84);
+  border-radius: 6px;
+}
