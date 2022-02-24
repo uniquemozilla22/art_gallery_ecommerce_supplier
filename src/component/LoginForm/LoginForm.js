@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import ForgotPassword from "../forgotPassword/ForgotPassword";
 import { Fade } from "react-reveal";
 import LoginAction from "../../store/actions/Authentication/Login/Login.action";
+import ForgotPasswordAction from "../../store/actions/Authentication/ForgotPassword/ForgotPassword.action";
 
 const LoginForm = (props) => {
   const [data, setData] = useState({ email: "", password: "" });
@@ -143,7 +144,7 @@ const LoginForm = (props) => {
       <ForgotPassword
         show={props.modal.forgot}
         toggleForgetPassword={() => props.toggleForgetPassword()}
-        sendMail={(e) => props.sendMail(e)}
+        sendMail={props.sendMail}
       />
     </Fade>
   );
@@ -159,6 +160,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     Login: (email, password) => dispatch(LoginAction({ email, password })),
     toggleForgetPassword: () => dispatch({ type: "FORGOT__MODEL" }),
+    sendMail: (email) => dispatch(ForgotPasswordAction(email)),
   };
 };
 
