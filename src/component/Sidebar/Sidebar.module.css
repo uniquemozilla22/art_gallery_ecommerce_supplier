@@ -12,13 +12,22 @@
 .sidebar {
   width: 100%;
   background: #eef2ff;
-  padding: 24px 24px 16px;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
   color: rgb(102, 112, 133);
   font-size: 16px;
   line-height: 24px;
   font-weight: regular;
+  position: relative;
+}
+
+
+.sidebar__footer {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
 }
 
 .sidebar_header {

@@ -1,0 +1,51 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar .dropdown {
+  width: 100%;
+}
+
+.avatar .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar .content .name {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  align-items: flex-start;
+}
+.avatar h5 {
+  font-size: 16px;
+  margin: 0;
+}
+.avatar .content .name p {
+  margin: 0;
+}
+
+.avatar .dropdown__button {
+  background: transparent !important;
+  border: none !important;
+  color: #2b2b2b !important;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar .dropdown__button:hover,
+.avatar .dropdown__button:focus {
+  background: transparent;
+  color: #2b2b2b;
+  border: none !important;
+}
+
+.avatar .dropdown__button::after {
+  content: unset !important;
+}

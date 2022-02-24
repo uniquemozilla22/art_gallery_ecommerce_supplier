@@ -9,6 +9,7 @@ import classes from "./Sidebar.module.css";
 import FeatherIcon from "feather-icons-react";
 import { NavLink } from "react-router-dom";
 import SidebarItem from "./SidebarItem/SidebarItem";
+import AvatarComp from "./Avatar/Avatar";
 
 const Sidebar = () => {
   return (
@@ -29,15 +30,16 @@ const Sidebar = () => {
           </svg>
           <span>Art Gallery</span>
         </div>
-        <div>
-          <div className={classes.sidebar_body}>
-            <SidebarItem link="my_arts" />
-            <SidebarItem link="my_orders" />
-            <SidebarItem link="reviews" />
-            <SidebarItem link="finance" />
-            <SidebarItem link="get_help" />
-            <SidebarItem link="Data Visualization" data={["charts", "bars"]} />
-          </div>
+        <div className={classes.sidebar_body}>
+          <SidebarItem link="my_arts" />
+          <SidebarItem link="my_orders" />
+          <SidebarItem link="reviews" />
+          <SidebarItem link="finance" />
+          <SidebarItem link="get_help" />
+          <SidebarItem link="Data Visualization" data={["charts", "bars"]} />
+        </div>
+        <div className={classes.sidebar__footer}>
+          <AvatarComp name={"Yogesh Bhattarai"} />
         </div>
       </div>
     </div>
