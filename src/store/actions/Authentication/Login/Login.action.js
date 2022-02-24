@@ -7,19 +7,19 @@ import {
   WarningMessage,
 } from "../../Message/Message.action";
 
-const Login = (payload) => {
+const LoginAction = (payload) => {
   return (dispatch) => {
     dispatch(showLoading());
     LoginPost(payload)
       .then((res) => {
         dispatch(hideLoading());
         dispatch(SuccessMessage({ message: res.data.message }));
-        return {
+        return dispatch({
           type: LOGIN,
           payload: {
             token: res.data.token,
           },
-        };
+        });
       })
       .catch((err) => {
         dispatch(hideLoading());
@@ -43,4 +43,4 @@ const LoginPost = (payload) => {
   return axiosBase.post("/auth/login", payload);
 };
 
-export default Login;
+export default LoginAction;

@@ -1,4 +1,4 @@
-import { HIDE_LOADING, SHOW_LOADING } from "../Types/Types";
+import { HIDE_LOADING, SHOW_LOADING } from "../../Types";
 
 export const showLoading = () => {
   return {

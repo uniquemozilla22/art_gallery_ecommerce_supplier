@@ -5,6 +5,7 @@ import { FacebookOutlined, Google } from "@mui/icons-material";
 import { connect } from "react-redux";
 import ForgotPassword from "../forgotPassword/ForgotPassword";
 import { Fade } from "react-reveal";
+import LoginAction from "../../store/actions/Authentication/Login/Login.action";
 
 const LoginForm = (props) => {
   const [data, setData] = useState({ email: "", password: "" });
@@ -156,10 +157,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    //   Login: (email, password) => dispatch(LoginAction({ email, password })),
-    // Loader: (data) =>
-    // data ? dispatch(showLoading()) : dispatch(hideLoading()),
-    //   GoogleLogin: () => dispatch(GoogleAuthAction()),
+    Login: (email, password) => dispatch(LoginAction({ email, password })),
     toggleForgetPassword: () => dispatch({ type: "FORGOT__MODEL" }),
   };
 };

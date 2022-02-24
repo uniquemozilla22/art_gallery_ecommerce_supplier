@@ -1,4 +1,4 @@
-import { ERROR, HIDE_MESSAGE, SUCCESS, WARNING } from "../Types/Types";
+import { ERROR, HIDE_MESSAGE, SUCCESS, WARNING } from "../../Types";
 
 export const HideMessage = () => {
   return {
