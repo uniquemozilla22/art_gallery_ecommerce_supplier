@@ -21,10 +21,15 @@ const Layout = (props) => {
   }, [props.user.token]);
   return (
     <>
-      {!SidebarRestricted.includes(location.pathname) ? <Sidebar /> : null}
+      {!SidebarRestricted.includes(location.pathname) ? (
+        <Sidebar>
+          <div style={{ marginLeft: "4%" }}>{props.children}</div>
+        </Sidebar>
+      ) : (
+        <div style={{ marginLeft: "4%" }}>{props.children}</div>
+      )}
       <MessageHandle {...props.message} />
       <SpinnerComp {...props.loader} />
-      <div style={{ marginLeft: "4%" }}>{props.children}</div>
     </>
   );
 };

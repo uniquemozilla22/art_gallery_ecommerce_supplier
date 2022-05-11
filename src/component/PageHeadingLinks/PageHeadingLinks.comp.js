@@ -6,12 +6,11 @@ import classes from "./PageHeadingLinks.module.css";
 
 const PageHeadingLink = ({ link }) => {
   const [active, setActive] = useState(false);
-
   return (
     <div className={classes.pageHeadingLink}>
       {link.map((link) => (
         <NavLink
-          to={`/${link}`}
+          to={`${link}`}
           className={({ isActive }) => {
             setActive(isActive);
             return !isActive ? null : classes.active;

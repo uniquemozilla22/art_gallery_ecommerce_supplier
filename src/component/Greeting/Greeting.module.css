@@ -1,0 +1,15 @@
+.greeting__container h2{
+    font-size:1.4rem;
+    font-weight:medium;
+    color:#2b2b2b;
+}
+
+
+.greeting__container h2 span{
+    color:#FF5959;
+}
+
+.greeting__container p{
+    font-weight: 400;
+    font-size:1rem;
+}
