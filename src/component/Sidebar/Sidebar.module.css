@@ -1,9 +1,7 @@
 .container__sidebar {
-  width: 15%;
   height: 100%;
   display: flex;
-  background: #eef2ff;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
@@ -11,35 +9,41 @@
 
 .sidebar {
   width: 100%;
-  background: #eef2ff;
-  padding: 20px 16px;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  color: rgb(102, 112, 133);
+  color: #2b2b2b;
   font-size: 16px;
   line-height: 24px;
   font-weight: regular;
   position: relative;
+  justify-content:space-between;
+  align-items:center;
 }
 
 
-.sidebar__footer {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
+.sidebar__footer >a{
+  text-decoration: none;
+  color:inherit;
+  flex:1;
+  align-items: flex-end;
+
 }
 
 .sidebar_header {
   display: flex;
-  gap: 8px;
-  padding: 12px 10px;
-  align-items: center;
+  gap: 1rem;
+  flex:1;
+  align-items: flex-start;
 }
 
 .sidebar_body {
   display: flex;
   flex-direction: column;
+  flex:3;
+  align-items: center;
+
+
 }
 .sidebar_body .Accordion__container {
   box-shadow: none;
@@ -60,24 +64,27 @@
   padding: 1rem;
 }
 
+
 .sidebar_body > a {
   text-decoration: none;
+  text-transform: capitalize;
   padding: 10px 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  margin: 4px 0px;
-  color: rgb(102, 112, 133);
+  margin: 1rem 0px;
+  padding:1rem ;
 }
 .sidebar_body span {
-  color: rgb(102, 112, 133);
+  color:#2b2b2b;
 }
 
 .sidebar_body .active {
-  color: #676fa3;
   font-weight: bold;
   border-radius: 8px;
+  background: #eef2ff;
+  border-radius: 20px;
 }
 
 .sidebar_body a div {

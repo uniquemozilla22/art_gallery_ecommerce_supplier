@@ -18,12 +18,12 @@ const AvatarComp = ({ name, image, options }) => {
             ) : (
               <Avatar>{name.charAt(0)}</Avatar>
             )}
-            <div className={classes.name}>
+            {/* <div className={classes.name}>
               <h5>{name}</h5>
               <p>Artist</p>
-            </div>
+            </div> */}
           </div>
-          <FeatherIcon icon="more-vertical" />
+          {/* <FeatherIcon icon="more-vertical" /> */}
         </Dropdown.Toggle>
         <Dropdown.Menu align="end" drop={"up"}>
           <Dropdown.Item href="#/action-3">Edit Profile</Dropdown.Item>

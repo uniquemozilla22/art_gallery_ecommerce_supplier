@@ -24,7 +24,7 @@ const Layout = (props) => {
       {!SidebarRestricted.includes(location.pathname) ? <Sidebar /> : null}
       <MessageHandle {...props.message} />
       <SpinnerComp {...props.loader} />
-      {props.children}
+      <div style={{ marginLeft: "4%" }}>{props.children}</div>
     </>
   );
 };

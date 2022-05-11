@@ -6,10 +6,11 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
+  Tooltip,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const SidebarItem = ({ link, data }) => {
+const SidebarItem = ({ link, data, icon }) => {
   const [active, setActive] = useState(false);
   return data ? (
     <Accordion className={classes.Accordion__container}>
@@ -19,9 +20,7 @@ const SidebarItem = ({ link, data }) => {
         id="panel1a-header"
       >
         <div className={classes.title + " " + (active ? classes.active : null)}>
-          <span>
-            {link.charAt(0).toUpperCase() + link.slice(1).split("_").join(" ")}
-          </span>
+          <span>{link}</span>
         </div>
       </AccordionSummary>
       <AccordionDetails>
@@ -39,9 +38,13 @@ const SidebarItem = ({ link, data }) => {
       }}
     >
       <div classname={classes.title}>
-        <span>
-          {link.charAt(0).toUpperCase() + link.slice(1).split("_").join(" ")}
-        </span>
+        <Tooltip title={link.split("_").join(" ")}>
+          {icon ? (
+            <span>{icon}</span>
+          ) : (
+            <span>{link.split("_").join(" ")}</span>
+          )}
+        </Tooltip>
       </div>
     </NavLink>
   );

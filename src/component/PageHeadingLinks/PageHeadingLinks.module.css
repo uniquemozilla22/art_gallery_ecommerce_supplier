@@ -1,0 +1,26 @@
+.pageHeadingLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+
+}
+
+.pageHeadingLink a{
+    margin:0 2rem;
+    text-decoration: none;
+    color:#888686;
+    text-transform:capitalize;
+    font-weight: 700;
+
+}
+
+
+.pageHeadingLink .active{
+    color:#2b2b2b;
+    font-weight: 700;
+}
+.pageHeadingLink a:hover{
+    color:#2b2b2b;
+
+}
