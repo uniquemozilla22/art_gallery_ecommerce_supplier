@@ -1,5 +1,5 @@
 import React from "react";
-import Greeting from "./../Greeting/Greeting.comp";
+import Greeting from "../Greeting/Greeting.comp";
 
 const HomeComponent = () => {
   return (

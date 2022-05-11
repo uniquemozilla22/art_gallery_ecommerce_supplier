@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import HomeComponent from "../../component/HomeComponent/HomeComponent.comp";
+import HomeComponent from "../../component/DashboardHome/HomeComponent.comp";
 import PageHeadingLink from "../../component/PageHeadingLinks/PageHeadingLinks.comp";
 import classes from "./Home.module.css";
 
