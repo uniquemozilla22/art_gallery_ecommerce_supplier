@@ -11,7 +11,7 @@ const Homepage = () => {
       <PageHeadingLink link={heading} />
       <h1 className={classes.pagetitle}>Dashboard</h1>
       <Routes>
-        <Route path="/home" element={<HomeComponent />}></Route>
+        <Route path="/" element={<HomeComponent />}></Route>
       </Routes>
     </div>
   );

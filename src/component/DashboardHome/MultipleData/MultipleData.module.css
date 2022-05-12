@@ -37,6 +37,7 @@
     flex-direction:column;
     flex:1;
     padding:1rem;
+    position:relative;
 }
 
 .data__item .icon{
@@ -47,7 +48,15 @@
     border-radius: 50%;
 }
 
-.data__item .icon svg{
+.data__item:hover .link{
+    display: block;
+}
+
+.data__item .link{
+    position: absolute;
+    top:0;
+    right:0;
+    display: none;
 }
 
 .data__item h4{

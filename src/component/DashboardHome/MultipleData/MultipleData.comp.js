@@ -1,7 +1,13 @@
 import React from "react";
 import classes from "./MultipleData.module.css";
 import FeatherIcons from "feather-icons-react";
-import { Avatar } from "@mui/material";
+import { Avatar, Tooltip } from "@mui/material";
+import {
+  ArrowRightOutlined,
+  ChevronRightOutlined,
+  RampRightOutlined,
+} from "@mui/icons-material";
+import { useNavigate } from "react-router";
 
 const MultipleData = ({ data }) => {
   return (
@@ -29,6 +35,7 @@ const MultipleData = ({ data }) => {
 };
 
 export const DataItem = ({ data }) => {
+  const navigation = useNavigate();
   return (
     <div className={classes.data__item}>
       <div className={classes.icon}>
@@ -38,6 +45,16 @@ export const DataItem = ({ data }) => {
       </div>
       <h4>{data.name.split("_").join(" ")}</h4>
       <h3>{data.items}</h3>
+      {data.link ? (
+        <div
+          className={classes.link}
+          onClick={() => navigation("/" + data.link)}
+        >
+          <Tooltip title={"Go to " + data.link}>
+            <ChevronRightOutlined />
+          </Tooltip>
+        </div>
+      ) : null}
     </div>
   );
 };

@@ -17,22 +17,32 @@ const HomeComponent = () => {
       {
         name: "sales",
         subName: "Sales Today",
-        items: "900",
+        items: "NRS 2000",
         icon: "dollar-sign",
+        link: "sales",
       },
     ],
-    [{ name: "orders", subName: "Orders Today", items: "900", icon: "box" }],
+    [
+      {
+        name: "orders",
+        subName: "Orders Today",
+        items: "9",
+        icon: "box",
+        link: "orders",
+      },
+    ],
     [
       {
         name: "Likes",
         subName: "Likes Today",
-        items: "900",
+        items: "9",
         icon: "thumbs-up",
+        link: "likes",
       },
     ],
   ];
   return (
-    <>
+    <div className={classes.home___component}>
       <Greeting name="Phurba" />
       <div className={classes.home__container}>
         <div className={classes.data__container}>
@@ -53,7 +63,7 @@ const HomeComponent = () => {
           <NotificationComp />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
