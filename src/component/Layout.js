@@ -23,10 +23,10 @@ const Layout = (props) => {
     <>
       {!SidebarRestricted.includes(location.pathname) ? (
         <Sidebar>
-          <div style={{ marginLeft: "4%" }}>{props.children}</div>
+          <div style={{ marginLeft: "80px" }}>{props.children}</div>
         </Sidebar>
       ) : (
-        <div style={{ marginLeft: "4%" }}>{props.children}</div>
+        <div style={{ marginLeft: "80px" }}>{props.children}</div>
       )}
       <MessageHandle {...props.message} />
       <SpinnerComp {...props.loader} />
