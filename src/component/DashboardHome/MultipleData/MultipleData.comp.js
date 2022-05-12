@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./MultipleData.module.css";
 import FeatherIcons from "feather-icons-react";
+import { Avatar } from "@mui/material";
 
 const MultipleData = ({ data }) => {
   return (
@@ -31,7 +32,9 @@ const DataItem = ({ data }) => {
   return (
     <div className={classes.data__item}>
       <div className={classes.icon}>
-        <FeatherIcons icon={data.icon} />
+        <Avatar sx={{ background: "white", color: "#2b2b2b" }}>
+          <FeatherIcons icon={data.icon} />
+        </Avatar>
       </div>
       <h4>{data.name.split("_").join(" ")}</h4>
       <h3>{data.items}</h3>

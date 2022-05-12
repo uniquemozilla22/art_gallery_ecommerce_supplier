@@ -1,5 +1,6 @@
 import React from "react";
 import Greeting from "../Greeting/Greeting.comp";
+import NotificationComp from "../Notification/Notification.comp";
 import classes from "./HomeComponent.module.css";
 import MultipleData from "./MultipleData/MultipleData.comp";
 import SingleData from "./SingleData/SingleData.comp";
@@ -34,7 +35,9 @@ const HomeComponent = () => {
               ))}
           </div>
         </div>
-        <div className={classes.notification__container}>notification</div>
+        <div className={classes.notification__container}>
+          <NotificationComp />
+        </div>
       </div>
     </>
   );
