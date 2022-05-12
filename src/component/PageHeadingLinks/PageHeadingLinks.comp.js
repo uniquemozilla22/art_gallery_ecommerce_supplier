@@ -8,15 +8,16 @@ const PageHeadingLink = ({ link }) => {
   const [active, setActive] = useState(false);
   return (
     <div className={classes.pageHeadingLink}>
-      {link.map((link) => (
+      {link.map((link, index) => (
         <NavLink
+          key={index}
           to={`${link}`}
           className={({ isActive }) => {
             setActive(isActive);
             return !isActive ? null : classes.active;
           }}
         >
-          <div classname={classes.title}>
+          <div className={classes.title}>
             <Tooltip title={link.split("_").join(" ")}>
               <span>{link.split("_").join(" ")}</span>
             </Tooltip>

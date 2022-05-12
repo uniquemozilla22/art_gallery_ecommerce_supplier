@@ -2,13 +2,11 @@
     background-color: #E8EBFE;
     padding:2rem;
     border-radius: 20px;
+    height:max-content;
 }
 
 .data__multiple:hover{
     box-shadow:0 0 10px #2b2b2b25;
-}
-.data__multiple{
-    flex:3
 }
 
 
@@ -29,6 +27,7 @@
     justify-content:space-between;;
     align-items:center;
     font-size: 1rem;
+    flex-wrap: wrap;
 }
 
 
@@ -36,7 +35,8 @@
     display: flex;
     justify-content:flex-start;
     flex-direction:column;
-    flex:1
+    flex:1;
+    padding:1rem;
 }
 
 .data__item .icon{

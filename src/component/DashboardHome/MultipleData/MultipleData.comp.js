@@ -28,7 +28,7 @@ const MultipleData = ({ data }) => {
   );
 };
 
-const DataItem = ({ data }) => {
+export const DataItem = ({ data }) => {
   return (
     <div className={classes.data__item}>
       <div className={classes.icon}>

@@ -13,9 +13,23 @@ const HomeComponent = () => {
       { name: "product_likes", items: "900", icon: "thumbs-up" },
       { name: "followers", items: "900", icon: "users" },
     ],
-    [{ name: "sales", subName: "Sales Today", items: "900" }],
-    [{ name: "orders", subName: "Orders Today", items: "900" }],
-    [{ name: "Likes", subName: "Likes Today", items: "900" }],
+    [
+      {
+        name: "sales",
+        subName: "Sales Today",
+        items: "900",
+        icon: "dollar-sign",
+      },
+    ],
+    [{ name: "orders", subName: "Orders Today", items: "900", icon: "box" }],
+    [
+      {
+        name: "Likes",
+        subName: "Likes Today",
+        items: "900",
+        icon: "thumbs-up",
+      },
+    ],
   ];
   return (
     <>
