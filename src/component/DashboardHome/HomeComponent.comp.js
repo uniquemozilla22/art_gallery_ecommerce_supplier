@@ -7,10 +7,10 @@ import SingleData from "./SingleData/SingleData.comp";
 const HomeComponent = () => {
   const data = [
     [
-      { name: "orders", items: "900" },
-      { name: "likes", items: "900" },
-      { name: "product_likes", items: "900" },
-      { name: "followers", items: "900" },
+      { name: "orders", items: "900", icon: "box" },
+      { name: "likes", items: "900", icon: "heart" },
+      { name: "product_likes", items: "900", icon: "thumbs-up" },
+      { name: "followers", items: "900", icon: "users" },
     ],
     [{ name: "sales", subName: "Sales Today", items: "900" }],
     [{ name: "orders", subName: "Orders Today", items: "900" }],

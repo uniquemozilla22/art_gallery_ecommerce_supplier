@@ -20,3 +20,44 @@
 }
 
 
+.data__items_container{
+    display:flex;
+    justify-content:space-between;;
+    align-items:center;
+    font-size: 1rem;
+}
+
+
+.data__item{
+    display: flex;
+    justify-content:flex-start;
+    flex-direction:column;
+    flex:1
+}
+
+.data__item .icon{
+    margin-bottom:1rem;
+    background:#fff;
+    width:max-content;
+    padding:1rem;
+    border-radius: 50%;
+}
+
+.data__item .icon svg{
+}
+
+.data__item h4{
+font-weight: 500;
+font-size: 0.9rem;
+color: #888686;
+text-transform: capitalize;
+}
+
+.data__item h3{
+    font-style: normal;
+font-weight: 700;
+font-size: 30px;
+color: #2b2b2b;
+}
+
+

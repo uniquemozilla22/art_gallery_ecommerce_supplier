@@ -31,10 +31,10 @@ const DataItem = ({ data }) => {
   return (
     <div className={classes.data__item}>
       <div className={classes.icon}>
-        <FeatherIcons icon="box" />
+        <FeatherIcons icon={data.icon} />
       </div>
-      <h1>{data.name}</h1>
-      <h1>{data.items}</h1>
+      <h4>{data.name.split("_").join(" ")}</h4>
+      <h3>{data.items}</h3>
     </div>
   );
 };
