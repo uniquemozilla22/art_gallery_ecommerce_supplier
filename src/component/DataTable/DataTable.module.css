@@ -1,0 +1,121 @@
+.data__table{
+    margin:1rem 0;
+}
+
+
+.data__table .options_filter{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap: wrap;
+    gap:2rem;
+}
+
+.data__table .options_filter .search__data{
+    flex:10;
+    background: #EEF2FF;
+    box-shadow:0 0 4px #00000025;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding:0.5rem 1rem;
+    border-radius:10px;
+    color:#888686;
+}
+
+.data__table .options_filter input::placeholder{
+    color:#888686;
+}
+
+.data__table .options_filter input{
+    width: 100%;
+    outline: none;
+    border:none;
+    border-radius:10px;
+    background:none;
+    margin-left: 1rem;
+    font-size:1rem;
+}
+
+.data__table .options_filter .actions__container{
+    display: flex;
+    justify-content:center;
+    background: #EEF2FF;
+    padding:0.5rem;
+    box-shadow:0 0 4px #00000025;
+    border-radius: 10px;
+    flex:1;
+}
+
+.data__table .options_filter .actions__container:hover{
+    box-shadow:0 0 10px #00000035;
+    
+}
+
+.data__table .options_filter .actions__container p{
+    margin:0;
+}
+
+.data__table .data__table__wrapper{
+    width: 100%;
+    text-align: center;
+    margin:1rem 0;
+}
+
+.data__table__wrapper th{
+    text-transform: capitalize;
+    font-size:0.9rem;
+    padding:0.5rem;
+    font-weight: 600;
+
+}
+
+.data__table__wrapper td {
+    padding:0.5rem;
+    font-weight:400;
+    text-transform:capitalize;
+
+}
+
+
+.data__table__wrapper tr{
+    margin:1rem 0;
+}
+
+
+.data__table__wrapper tr:first-child{
+    border-bottom:0.5px solid #c4c4c4 
+}
+
+.data__table__wrapper td> h5{
+    font-size: 0.8rem;
+    color:#888686;
+}
+
+.data__table__wrapper .button__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.data__table__wrapper .button__container button{
+    border:none;
+    border-radius:10px;;
+    padding:0.5rem
+
+}
+
+.data__table__wrapper .button__container .accept__button{
+    background-color: #8FFD6850;
+}
+
+
+.data__table__wrapper .button__container .decline__button{
+    background-color: #FF595950;
+}
+
+
+
+
+

@@ -2,11 +2,7 @@ import React from "react";
 import classes from "./MultipleData.module.css";
 import FeatherIcons from "feather-icons-react";
 import { Avatar, Tooltip } from "@mui/material";
-import {
-  ArrowRightOutlined,
-  ChevronRightOutlined,
-  RampRightOutlined,
-} from "@mui/icons-material";
+import { ChevronRightOutlined } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 
 const MultipleData = ({ data }) => {

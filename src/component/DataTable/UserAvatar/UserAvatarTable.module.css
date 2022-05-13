@@ -1,0 +1,10 @@
+.avatar_table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar_table p{
+    margin:0;
+    margin-left:0.5rem;
+}

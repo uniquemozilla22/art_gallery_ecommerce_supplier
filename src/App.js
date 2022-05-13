@@ -6,6 +6,7 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import HomePage from "./pages/Home/Home.page";
 import LoginPage from "./pages/Login/Login.page";
 import Register from "./pages/register/Register.page";
+import OrderPage from "./pages/Order/Order.page";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           element={<ForgotPassword />}
         />
         <Route path="/dashboard/*" exact element={<HomePage />} />
+        <Route path="/orders/*" exact element={<OrderPage />} />
         <Route path="/finance" exact element={<HomePage />} />
         <Route path="/bids" exact element={<HomePage />} />
       </Routes>
