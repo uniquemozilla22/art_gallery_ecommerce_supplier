@@ -3,8 +3,9 @@ import AvatarTable from "../UserAvatar/UserAvatarTable.comp";
 import classes from "../DataTable.module.css";
 import { Tooltip } from "@mui/material";
 import FeatherIcon from "feather-icons-react";
+import { RemoveRedEyeOutlined } from "@mui/icons-material";
 
-const DataTableItem = ({ data, onAccept, onDecline, index }) => {
+const DataTableItem = ({ data, onAccept, onDecline, index, actions }) => {
   const [itemData, setItemData] = useState(data);
 
   const accept = (index, id) => {
@@ -23,7 +24,7 @@ const DataTableItem = ({ data, onAccept, onDecline, index }) => {
   };
 
   return (
-    <tr>
+    <tr className={classes.dataItems}>
       <td>{itemData.id}</td>
       <td>
         <AvatarTable data={itemData.user} />
@@ -66,6 +67,10 @@ const DataTableItem = ({ data, onAccept, onDecline, index }) => {
             <h5>{itemData.order_status}</h5>
           </>
         )}
+      </td>
+      <td>
+        {actions(itemData.id).map((actions) => actions)}
+        {actions(itemData.id).map((actions) => actions)}
       </td>
     </tr>
   );

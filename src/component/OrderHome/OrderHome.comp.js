@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import DataTable from "../DataTable/DataTable.comp";
+import { useNavigate } from "react-router";
+import { Tooltip } from "@mui/material";
+import { RemoveRedEyeOutlined } from "@mui/icons-material";
 
 const OrderHomeComponent = () => {
+  const navigation = useNavigate();
   const [data, setData] = useState([
     {
       id: "12d445t6vg",
@@ -96,9 +100,19 @@ const OrderHomeComponent = () => {
   const changeOrderStatus = (status, id) => {
     console.log("Setting the status", status, id);
   };
+
+  const onClickItem = (id) => navigation("/orders/" + id);
   return (
     <div>
-      <DataTable data={data} changeStatus={changeOrderStatus} />
+      <DataTable
+        data={data}
+        changeStatus={changeOrderStatus}
+        actions={(id) => [
+          <Tooltip title={"See Order"}>
+            <RemoveRedEyeOutlined onClick={() => onClickItem(id)} />
+          </Tooltip>,
+        ]}
+      />
     </div>
   );
 };

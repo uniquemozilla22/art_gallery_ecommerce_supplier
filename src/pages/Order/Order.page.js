@@ -14,6 +14,10 @@ const OrderPage = () => {
       <h1 className={classes.pagetitle}>Orders</h1>
       <Routes>
         <Route path={"/"} element={<OrderHomeComponent />} />
+        <Route path="recents" exact element={<h1>recents</h1>} />
+        <Route path="shipping" exact element={<h1>Shipping </h1>} />
+        <Route path="cancelled" exact element={<h1>Cancelled</h1>} />
+        <Route path="history" exact element={<h1>history</h1>} />
         <Route path="/:id" exact element={<SingleOrder />} />
       </Routes>
     </div>

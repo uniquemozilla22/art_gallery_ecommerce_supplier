@@ -12,16 +12,18 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<Register />} />
-        <Route
-          path="/users/resetPassword/:id/:token"
-          element={<ForgotPassword />}
-        />
-        <Route path="/dashboard/*" exact element={<HomePage />} />
-        <Route path="/orders/*" exact element={<OrderPage />} />
-        <Route path="/finance" exact element={<HomePage />} />
-        <Route path="/bids" exact element={<HomePage />} />
+        <Route exact path="/">
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/users/resetPassword/:id/:token"
+            element={<ForgotPassword />}
+          />
+          <Route path="/dashboard/*" exact element={<HomePage />} />
+          <Route path="/orders/*" exact element={<OrderPage />} />
+          <Route path="/finance" exact element={<HomePage />} />
+          <Route path="/bids" exact element={<HomePage />} />
+        </Route>
       </Routes>
     </Layout>
   );

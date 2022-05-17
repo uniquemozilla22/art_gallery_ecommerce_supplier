@@ -3,7 +3,7 @@ import classes from "./DataTable.module.css";
 import FeatherIcon from "feather-icons-react";
 import DataTableItem from "./Item/DataTableItem.comp";
 
-const DataTable = ({ data, changeStatus }) => {
+const DataTable = ({ data, changeStatus, actions }) => {
   const [tableData, setTableData] = useState(data);
   const order = Object.keys(data[0]);
 
@@ -69,6 +69,7 @@ const DataTable = ({ data, changeStatus }) => {
               {order.split("_").join(" ")}
             </th>
           ))}
+          <th></th>
         </tr>
         {searchParamsFunction(tableData).map((data, index) => {
           return (
@@ -78,6 +79,7 @@ const DataTable = ({ data, changeStatus }) => {
               onDecline={onDecline}
               data={data}
               index={index}
+              actions={actions}
             />
           );
         })}
