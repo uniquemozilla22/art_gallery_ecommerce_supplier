@@ -1,11 +1,9 @@
 import axiosBase from "../../../../axiosBase";
+import { postErrorHandle } from "../../../handleError/Error";
 import { LOGIN } from "../../../Types";
 import { showLoading, hideLoading } from "../../Loading/Loading";
-import {
-  ErrorMessage,
-  SuccessMessage,
-  WarningMessage,
-} from "../../Message/Message.action";
+import { SuccessMessage } from "../../Message/Message.action";
+import { LOGOUT } from "./../../../Types";
 
 const LoginAction = (payload) => {
   return (dispatch) => {
@@ -13,8 +11,13 @@ const LoginAction = (payload) => {
     LoginPost(payload)
       .then((res) => {
         dispatch(hideLoading());
-        dispatch(SuccessMessage({ message: res.data.message }));
-        return dispatch({
+        dispatch(
+          SuccessMessage({
+            title: "Login",
+            message: res.data.message,
+          })
+        );
+        dispatch({
           type: LOGIN,
           payload: {
             token: res.data.token,
@@ -22,25 +25,25 @@ const LoginAction = (payload) => {
         });
       })
       .catch((err) => {
-        dispatch(hideLoading());
-        if (err.response === undefined) {
-          dispatch(
-            ErrorMessage({
-              message: "Network Error! Check Your Internet Connection",
-            })
-          );
-        }
-        if (err.response.status === 400) {
-          dispatch(WarningMessage({ message: err.response.data.message }));
-        } else {
-          dispatch(ErrorMessage({ message: err.response.data.message }));
-        }
+        postErrorHandle(dispatch, "Login Error", err);
       });
   };
 };
 
+export const LogoutAction = () => {
+  return async (dispatch) => {
+    dispatch(showLoading());
+    dispatch({ type: LOGOUT });
+    dispatch(hideLoading());
+  };
+};
+
 const LoginPost = (payload) => {
-  return axiosBase.post("/auth/login", payload);
+  return axiosBase.post("login", payload);
+};
+
+const LogoutPost = () => {
+  return axiosBase.post("/auth/login");
 };
 
 export default LoginAction;

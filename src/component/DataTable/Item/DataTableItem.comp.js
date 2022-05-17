@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AvatarTable from "../UserAvatar/UserAvatarTable.comp";
 import classes from "../DataTable.module.css";
 import { Tooltip } from "@mui/material";
@@ -11,18 +11,17 @@ const DataTableItem = ({ data, onAccept, onDecline, index }) => {
     onAccept(index, id);
     let updating = itemData;
     console.log(updating);
-    updating.delivery_status = "confirmed";
-    console.log(updating);
-    setItemData(updating);
+    updating.order_status = "confirmed";
+    setItemData({ ...updating });
   };
   const decline = (index, id) => {
     onDecline(index, id);
     let updating = itemData;
     console.log(updating);
-
-    updating.delivery_status = "cancelled";
-    setItemData(updating);
+    updating.order_status = "cancelled";
+    setItemData({ ...updating });
   };
+
   return (
     <tr>
       <td>{itemData.id}</td>
@@ -40,9 +39,9 @@ const DataTableItem = ({ data, onAccept, onDecline, index }) => {
         })}
       </td>
       <td>
-        {itemData.delivery_status === "pending" ? (
+        {itemData.order_status === "pending" ? (
           <>
-            <h5>{itemData.delivery_status}</h5>
+            <h5>{itemData.order_status}</h5>
             <div className={classes.button__container}>
               <Tooltip title="Accept">
                 <button
@@ -64,7 +63,7 @@ const DataTableItem = ({ data, onAccept, onDecline, index }) => {
           </>
         ) : (
           <>
-            <h5>{itemData.delivery_status}</h5>
+            <h5>{itemData.order_status}</h5>
           </>
         )}
       </td>

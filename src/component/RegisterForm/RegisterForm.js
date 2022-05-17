@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import classes from "./RegisterForm.module.css";
 import { FacebookOutlined, Google, Twitter } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { Fade } from "react-reveal";
+import RegisterAction from "../../store/actions/Authentication/Registration/Register.post";
 // import RegisterAction from "../../store/actions/Authentication/Register/RegisterAction";
 // import { hideLoading, showLoading } from "../../store/actions/Loading/Loading";
 // import { useNavigate } from "react-router";
 
 const RegisterForm = (props) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     username: null,
     email: null,
@@ -19,8 +21,6 @@ const RegisterForm = (props) => {
     mobile_no: null,
     telephone_no: null,
     alternative_no: null,
-    primary_address: null,
-    secondary_address: null,
   });
   const [view, setView] = useState(false);
 
@@ -35,7 +35,7 @@ const RegisterForm = (props) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let validationData = validation;
     validationData = EmailHandler(validationData);
@@ -50,7 +50,11 @@ const RegisterForm = (props) => {
       validationData.username.validated &&
       validationData.mobile_no.validated
     ) {
-      props.Register(data);
+      const res = await dispatch(RegisterAction({ ...data }));
+
+      if (res.data) {
+        console.log(res.data);
+      }
     }
   };
 
@@ -216,34 +220,7 @@ const RegisterForm = (props) => {
           </div>
 
           <h4>Contact Information</h4>
-          <div className={"row " + classes.group}>
-            <div
-              className={
-                "col-xs-12 col-md-6 col-lg-6 " + classes.input__container
-              }
-            >
-              <input
-                type="text"
-                placeholder="Address Line 1"
-                className={classes.input}
-                name={"primary_address"}
-                onChange={(e) => handleInput(e)}
-              />
-            </div>
-            <div
-              className={
-                "col-xs-12 col-md-6 col-lg-6 " + classes.input__container
-              }
-            >
-              <input
-                type="text"
-                placeholder="Address Line 2"
-                className={classes.input}
-                name={"secondary_address"}
-                onChange={(e) => handleInput(e)}
-              />
-            </div>
-          </div>
+
           <div className={"row " + classes.group}>
             <div
               className={

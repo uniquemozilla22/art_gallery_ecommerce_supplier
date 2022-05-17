@@ -3,6 +3,7 @@ import { ERROR, HIDE_MESSAGE, SUCCESS, WARNING } from "../../Types";
 const initialState = {
   show: false,
   info: {
+    title: "",
     message: "",
     alert: SUCCESS,
   },
@@ -14,7 +15,11 @@ const MessageReducer = (state = initialState, action) => {
       return {
         ...state,
         show: true,
-        info: { message: action.payload.message, alert: ERROR },
+        info: {
+          message: action.payload.message,
+          title: action.payload.title,
+          alert: ERROR,
+        },
       };
     }
     case HIDE_MESSAGE: {
@@ -28,7 +33,11 @@ const MessageReducer = (state = initialState, action) => {
       return {
         ...state,
         show: true,
-        info: { message: action.payload.message, alert: SUCCESS },
+        info: {
+          message: action.payload.message,
+          title: action.payload.title,
+          alert: SUCCESS,
+        },
       };
     }
 
@@ -36,7 +45,11 @@ const MessageReducer = (state = initialState, action) => {
       return {
         ...state,
         show: true,
-        info: { message: action.payload.message, alert: WARNING },
+        info: {
+          message: action.payload.message,
+          title: action.payload.title,
+          alert: WARNING,
+        },
       };
     }
 

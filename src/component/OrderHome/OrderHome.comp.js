@@ -23,10 +23,10 @@ const OrderHomeComponent = () => {
         year: "numeric",
       }),
       pricing: 2000,
-      delivery_status: "pending",
+      order_status: "pending",
     },
     {
-      id: "12d445t6vg",
+      id: "52d445t6vg",
       user: {
         id: 5,
         name: "Yogesh bhattarai",
@@ -44,11 +44,11 @@ const OrderHomeComponent = () => {
         day: "numeric",
         year: "numeric",
       }),
-      pricing: 2000,
-      delivery_status: "pending",
+      pricing: 4000,
+      order_status: "pending",
     },
     {
-      id: "12d445t6vg",
+      id: "92d445t6vg",
       user: {
         id: 5,
         name: "Bishant Bhattarai",
@@ -66,11 +66,11 @@ const OrderHomeComponent = () => {
         day: "numeric",
         year: "numeric",
       }),
-      pricing: 2000,
-      delivery_status: "cancelled",
+      pricing: 4000,
+      order_status: "cancelled",
     },
     {
-      id: "12d445t6vg",
+      id: "62d445t6vg",
       user: {
         id: 5,
         name: "Yogesh Chapagain",
@@ -88,8 +88,8 @@ const OrderHomeComponent = () => {
         day: "numeric",
         year: "numeric",
       }),
-      pricing: 2000,
-      delivery_status: "confirmed",
+      pricing: 3000,
+      order_status: "confirmed",
     },
   ]);
 
