@@ -21,8 +21,7 @@ const Layout = ({ children }) => {
         navigate("/");
       }
     } else {
-      if (SidebarRestricted.includes(location.pathname)) return;
-      else navigate("/login");
+      navigate("/login");
     }
   }, [SidebarRestricted, location.pathname, navigate, token, tokenRedux]);
   return (
