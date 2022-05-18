@@ -9,7 +9,6 @@ const RegisterAction = (payload) => {
     try {
       const { data } = await post(payload);
       dispatch(hideLoading());
-
       return data;
     } catch (error) {
       postErrorHandle(dispatch, "Register Error", error);
@@ -18,7 +17,7 @@ const RegisterAction = (payload) => {
 };
 
 const post = (payload) => {
-  return axiosBase.post("create", { ...payload });
+  return axiosBase().post("create", { ...payload });
 };
 
 export default RegisterAction;

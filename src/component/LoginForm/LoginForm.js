@@ -88,12 +88,15 @@ const LoginForm = (props) => {
 
   const googleSuccess = async (res) => authenticate(res);
 
-  const googleFailure = (err) =>
+  const googleFailure = (err) => {
     postErrorHandle(dispatch, "Google Login Error", err);
+  };
 
   const facebookSuccess = (user) => authenticate(user);
-  const facebookFailure = (error) =>
+  const facebookFailure = (error) => {
     postErrorHandle(dispatch, "Facebook Login Error", error);
+  };
+
   return (
     <Fade>
       <div className={classNameContainer()}>

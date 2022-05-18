@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Greeting from "../Greeting/Greeting.comp";
 import NotificationComp from "../Notification/Notification.comp";
 import classes from "./HomeComponent.module.css";
@@ -6,6 +7,7 @@ import MultipleData from "./MultipleData/MultipleData.comp";
 import SingleData from "./SingleData/SingleData.comp";
 
 const HomeComponent = () => {
+  const username = useSelector((state) => state.user.username);
   const data = [
     [
       { name: "orders", items: "900", icon: "box" },
@@ -43,7 +45,7 @@ const HomeComponent = () => {
   ];
   return (
     <div className={classes.home___component}>
-      <Greeting name="Phurba" />
+      <Greeting name={username} />
       <div className={classes.home__container}>
         <div className={classes.data__container}>
           {data

@@ -22,10 +22,11 @@ const SocialAuthentication = (info) => {
         type: LOGIN,
         payload: {
           token: res.data.token,
+          username: res.data.username,
         },
       });
     } catch (error) {
-      postErrorHandle(dispatch, "Social Login Error", error);
+      postErrorHandle(dispatch, info.provider + " Login Error", error);
     }
   };
 };

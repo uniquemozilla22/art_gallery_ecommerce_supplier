@@ -4,14 +4,16 @@ import FeatherIcon from "feather-icons-react";
 import SidebarItem from "./SidebarItem/SidebarItem";
 import AvatarComp from "./Avatar/Avatar";
 import { DashboardOutlined } from "@mui/icons-material";
+import { useSelector } from "react-redux";
 
 const Sidebar = (props) => {
+  const username = useSelector((state) => state.user.username);
   return (
     <>
       <div className={classes.container__sidebar}>
         <div className={classes.sidebar}>
           <div className={classes.sidebar_header}>
-            <AvatarComp name={"Yogesh Bhattarai"} />
+            <AvatarComp name={username} />
           </div>
           <div className={classes.sidebar_body}>
             <SidebarItem link="Dashboard" icon={<DashboardOutlined />} />

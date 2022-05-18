@@ -11,7 +11,7 @@ export const postErrorHandle = (dispatch, title, error) => {
     dispatch(
       ErrorMessage({
         title,
-        message: error.response.data.message,
+        message: "Network Error ! Cannot find a connection",
       })
     );
   } else {
@@ -31,4 +31,6 @@ export const postErrorHandle = (dispatch, title, error) => {
       );
     }
   }
+
+  return false;
 };

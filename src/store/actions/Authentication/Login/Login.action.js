@@ -21,6 +21,7 @@ const LoginAction = (payload) => {
           type: LOGIN,
           payload: {
             token: res.data.token,
+            username: res.data.username,
           },
         });
       })
@@ -31,19 +32,27 @@ const LoginAction = (payload) => {
 };
 
 export const LogoutAction = () => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     dispatch(showLoading());
-    dispatch({ type: LOGOUT });
-    dispatch(hideLoading());
+    try {
+      dispatch(hideLoading());
+      const logout = await LogoutPost(getState().user.token);
+      console.log(logout);
+      dispatch({ type: LOGOUT });
+      return true;
+    } catch (error) {
+      console.log(error);
+      return postErrorHandle(dispatch, "Logout Error", error);
+    }
   };
 };
 
 const LoginPost = (payload) => {
-  return axiosBase.post("login", payload);
+  return axiosBase().post("login", payload);
 };
 
-const LogoutPost = () => {
-  return axiosBase.post("/auth/login");
+const LogoutPost = (token) => {
+  return axiosBase(token).post("logout");
 };
 
 export default LoginAction;

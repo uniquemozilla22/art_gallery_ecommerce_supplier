@@ -1,7 +1,6 @@
-import { Chip, Avatar } from "@mui/material";
+import { Avatar } from "@mui/material";
 import React from "react";
-import { Dropdown, DropdownButton } from "react-bootstrap";
-import FeatherIcon from "feather-icons-react";
+import { Dropdown } from "react-bootstrap";
 import classes from "./Avatar.module.css";
 import { useDispatch } from "react-redux";
 import { LogoutAction } from "./../../../store/actions/Authentication/Login/Login.action";
@@ -11,9 +10,10 @@ const AvatarComp = ({ name, image, options }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logoutAction = () => {
-    dispatch(LogoutAction());
-    navigate("/login");
+  const logoutAction = async () => {
+    const logout = await dispatch(LogoutAction());
+    console.log(logout);
+    if (logout) navigate("/login");
   };
   return (
     <div className={classes.avatar}>
@@ -31,7 +31,9 @@ const AvatarComp = ({ name, image, options }) => {
           </div>
         </Dropdown.Toggle>
         <Dropdown.Menu align="end" drop={"up"}>
-          <Dropdown.Item>Edit Profile</Dropdown.Item>
+          <Dropdown.Item onClick={() => navigate("/profile")}>
+            Profile
+          </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item onClick={() => logoutAction()}>Logout</Dropdown.Item>
         </Dropdown.Menu>
