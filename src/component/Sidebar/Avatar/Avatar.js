@@ -26,7 +26,7 @@ const AvatarComp = ({ name, image, options }) => {
             {image ? (
               <Avatar alt={name} src={image} />
             ) : (
-              <Avatar>{name.charAt(0)}</Avatar>
+              <Avatar>{name?.charAt(0)}</Avatar>
             )}
           </div>
         </Dropdown.Toggle>
