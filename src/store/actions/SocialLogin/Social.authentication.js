@@ -1,7 +1,7 @@
-import axiosBase from "../../../../axiosBase";
+import axiosBase from "../../../axiosBase";
 import { postErrorHandle } from "../../handleError/Error";
-import { hideLoading, showLoading } from "../../Loading/Loading";
-import { SuccessMessage } from "../../Message/Message";
+import { hideLoading, showLoading } from "../Loading/Loading";
+import { SuccessMessage } from "../Message/Message.action";
 import { LOGIN } from "../../Types";
 
 const SocialAuthentication = (info) => {
@@ -15,7 +15,7 @@ const SocialAuthentication = (info) => {
       dispatch(
         SuccessMessage({
           title: "Login",
-          message: res.data.message,
+          message: res.data.msg,
         })
       );
       dispatch({

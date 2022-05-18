@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import classes from "./LoginForm.module.css";
 import { Link } from "react-router-dom";
 import { FacebookOutlined, Google } from "@mui/icons-material";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import ForgotPassword from "../forgotPassword/ForgotPassword";
 import { Fade } from "react-reveal";
 import LoginAction from "../../store/actions/Authentication/Login/Login.action";
 import ForgotPasswordAction from "../../store/actions/Authentication/ForgotPassword/ForgotPassword.action";
 import LoginSocialButton from "../SocialLogin/LoginSocial.button";
+import SocialAuthentication from "../../store/actions/SocialLogin/Social.authentication";
+import { postErrorHandle } from "../../store/handleError/Error";
 
 const LoginForm = (props) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({ email: "", password: "" });
   const [validation, setValidation] = useState({
     email: { validated: null, message: "" },
@@ -81,27 +84,16 @@ const LoginForm = (props) => {
     return props.loginModal ? classes.login__modal : classes.login__form;
   };
 
-  const googleSuccess = async (res) => {
-    console.log("Success google Login", res);
-    // props.SocialLogin(res);
-  };
+  const authenticate = (res) => dispatch(SocialAuthentication(res));
 
-  const googleFailure = (err) => {
-    console.log("Error google Login", err);
-    // console.log(err.message);
-    // props.Error(err.message);
-  };
+  const googleSuccess = async (res) => authenticate(res);
 
-  const facebookSuccess = (user) => {
-    console.log("Success Facebook Login", user);
+  const googleFailure = (err) =>
+    postErrorHandle(dispatch, "Google Login Error", err);
 
-    // props.SocialLogin(user);
-  };
-  const facebookFailure = (error) => {
-    console.log("Error Facebook Login", error);
-
-    // props.Error(error.message);
-  };
+  const facebookSuccess = (user) => authenticate(user);
+  const facebookFailure = (error) =>
+    postErrorHandle(dispatch, "Facebook Login Error", error);
   return (
     <Fade>
       <div className={classNameContainer()}>
