@@ -10,6 +10,7 @@ const LoginAction = (payload) => {
     dispatch(showLoading());
     LoginPost(payload)
       .then((res) => {
+        console.log(res.data);
         dispatch(hideLoading());
         dispatch(
           SuccessMessage({
@@ -20,8 +21,7 @@ const LoginAction = (payload) => {
         dispatch({
           type: LOGIN,
           payload: {
-            token: res.data.token,
-            username: res.data.username,
+            ...res.data,
           },
         });
       })

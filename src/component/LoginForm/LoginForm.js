@@ -5,7 +5,9 @@ import { FacebookOutlined, Google } from "@mui/icons-material";
 import { connect, useDispatch } from "react-redux";
 import ForgotPassword from "../forgotPassword/ForgotPassword";
 import { Fade } from "react-reveal";
-import LoginAction from "../../store/actions/Authentication/Login/Login.action";
+import LoginAction, {
+  LogoutAction,
+} from "../../store/actions/Authentication/Login/Login.action";
 import ForgotPasswordAction from "../../store/actions/Authentication/ForgotPassword/ForgotPassword.action";
 import LoginSocialButton from "../SocialLogin/LoginSocial.button";
 import SocialAuthentication from "../../store/actions/SocialLogin/Social.authentication";

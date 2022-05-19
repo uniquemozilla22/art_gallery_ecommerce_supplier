@@ -7,13 +7,13 @@ import { DashboardOutlined } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 
 const Sidebar = (props) => {
-  const username = useSelector((state) => state.user.username);
+  const userInfo = useSelector((state) => state.user);
   return (
     <>
       <div className={classes.container__sidebar}>
         <div className={classes.sidebar}>
           <div className={classes.sidebar_header}>
-            <AvatarComp name={username} />
+            <AvatarComp {...userInfo} />
           </div>
           <div className={classes.sidebar_body}>
             <SidebarItem link="Dashboard" icon={<DashboardOutlined />} />

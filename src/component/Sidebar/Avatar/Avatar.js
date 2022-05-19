@@ -1,4 +1,4 @@
-import { Avatar } from "@mui/material";
+import { Avatar, Tooltip } from "@mui/material";
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 import classes from "./Avatar.module.css";
@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { LogoutAction } from "./../../../store/actions/Authentication/Login/Login.action";
 import { useNavigate } from "react-router";
 
-const AvatarComp = ({ name, image, options }) => {
+const AvatarComp = ({ username, image, email }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,13 +22,15 @@ const AvatarComp = ({ name, image, options }) => {
           variant="secondary"
           className={classes.dropdown__button}
         >
-          <div className={classes.content}>
-            {image ? (
-              <Avatar alt={name} src={image} />
-            ) : (
-              <Avatar>{name?.charAt(0)}</Avatar>
-            )}
-          </div>
+          <Tooltip title={email || username}>
+            <div className={classes.content}>
+              {image ? (
+                <Avatar alt={username} src={image} />
+              ) : (
+                <Avatar>{username?.charAt(0)}</Avatar>
+              )}
+            </div>
+          </Tooltip>
         </Dropdown.Toggle>
         <Dropdown.Menu align="end" drop={"up"}>
           <Dropdown.Item onClick={() => navigate("/profile")}>

@@ -10,7 +10,6 @@ const SocialAuthentication = (info) => {
     dispatch(showLoading());
     try {
       const res = await authenticateUsingGoogle(info);
-      console.log(res.data);
       dispatch(hideLoading());
       dispatch(
         SuccessMessage({
@@ -18,16 +17,18 @@ const SocialAuthentication = (info) => {
           message: res.data.msg,
         })
       );
+      console.log(res.data);
       dispatch({
         type: LOGIN,
         payload: {
           token: res.data.token,
           username: res.data.username,
+          image: res.data.profilePicURL,
+          email: res.data.email,
         },
       });
       return true;
     } catch (error) {
-      console.log(error);
       postErrorHandle(dispatch, info.provider + " Login Error", error);
     }
   };
