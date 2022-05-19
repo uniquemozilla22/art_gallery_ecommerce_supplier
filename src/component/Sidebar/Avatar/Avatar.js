@@ -22,7 +22,7 @@ const AvatarComp = ({ username, image, email }) => {
           variant="secondary"
           className={classes.dropdown__button}
         >
-          <Tooltip title={email || username}>
+          <Tooltip title={email || username} placement="right" arrow>
             <div className={classes.content}>
               {image ? (
                 <Avatar alt={username} src={image} />
