@@ -84,11 +84,16 @@ const LoginForm = (props) => {
     return props.loginModal ? classes.login__modal : classes.login__form;
   };
 
-  const authenticate = (res) => dispatch(SocialAuthentication(res));
+  const authenticate = async (res) => await dispatch(SocialAuthentication(res));
 
-  const googleSuccess = async (res) => authenticate(res);
+  const googleSuccess = async (res) => {
+    console.log("google Success => ", res);
+    const success = await authenticate(res);
+    return success;
+  };
 
   const googleFailure = (err) => {
+    console.log("google Error => ", err);
     postErrorHandle(dispatch, "Google Login Error", err);
   };
 

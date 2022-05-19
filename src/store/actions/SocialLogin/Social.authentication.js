@@ -25,14 +25,16 @@ const SocialAuthentication = (info) => {
           username: res.data.username,
         },
       });
+      return true;
     } catch (error) {
+      console.log(error);
       postErrorHandle(dispatch, info.provider + " Login Error", error);
     }
   };
 };
 
 const authenticateUsingGoogle = (userInfo) => {
-  return axiosBase.post("/auth/social", { userInfo });
+  return axiosBase().post("/auth/social", { userInfo });
 };
 
 export default SocialAuthentication;
