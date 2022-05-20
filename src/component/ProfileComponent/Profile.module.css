@@ -1,0 +1,29 @@
+.profile__component{
+    border: 1px solid red;
+    min-height:100vh;
+}
+
+.profile__component .cover__image{
+    width: 100%;
+    height:35vh;
+    overflow:hidden;
+}
+
+.profile__component .image__wrapper{
+    position: relative;
+}
+
+.profile__component .profile__image{
+    position: absolute;
+    bottom:0;
+    left:0;
+    transform: translate(50%,50%);
+    width:150px;
+    height:150px
+}
+
+.profile__component .cover__image img{
+    width: 100%;
+    height:100%;
+    image-rendering: optimize-resize;
+}

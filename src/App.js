@@ -14,17 +14,42 @@ function App() {
     <Layout>
       <Routes>
         <Route exact path="/">
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={React.lazy(() => import("./pages/Login/Login.page"))}
+          />
           <Route path="/register" element={<Register />} />
           <Route
             path="/users/resetPassword/:id/:token"
-            element={<ForgotPassword />}
+            element={React.lazy(() =>
+              import("./pages/ForgotPassword/ForgotPassword")
+            )}
           />
-          <Route path="/dashboard/*" exact element={<HomePage />} />
-          <Route path="/orders/*" exact element={<OrderPage />} />
-          <Route path="/finance" exact element={<HomePage />} />
-          <Route path="/bids" exact element={<HomePage />} />
-          <Route path="/profile/*" exact element={<ProfilePage />} />
+          <Route
+            path="/dashboard/*"
+            exact
+            element={React.lazy(() => import("./pages/Home/Home.page"))}
+          />
+          <Route
+            path="/orders/*"
+            exact
+            element={React.lazy(() => import("./pages/Order/Order.page"))}
+          />
+          <Route
+            path="/finance"
+            exact
+            element={React.lazy(() => import("./pages/Home/Home.page"))}
+          />
+          <Route
+            path="/bids"
+            exact
+            element={React.lazy(() => import("./pages/Home/Home.page"))}
+          />
+          <Route
+            path="/profile/*"
+            exact
+            element={React.lazy(() => import("./pages/Profile/Profile.page"))}
+          />
         </Route>
       </Routes>
     </Layout>

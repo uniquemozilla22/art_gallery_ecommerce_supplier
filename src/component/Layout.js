@@ -5,6 +5,8 @@ import MessageHandle from "./ErrorHandle/ErrorHandle";
 import Sidebar from "./Sidebar/Sidebar";
 import SpinnerComp from "./Spinner/Spinner";
 
+const Sidebar = React.lazy
+
 const Layout = ({ children }) => {
   const tokenRedux = useSelector((state) => state.user.token);
   const location = useLocation();
