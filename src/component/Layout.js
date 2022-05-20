@@ -1,11 +1,9 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import MessageHandle from "./ErrorHandle/ErrorHandle";
 import Sidebar from "./Sidebar/Sidebar";
 import SpinnerComp from "./Spinner/Spinner";
-
-const Sidebar = React.lazy
 
 const Layout = ({ children }) => {
   const tokenRedux = useSelector((state) => state.user.token);
@@ -33,7 +31,7 @@ const Layout = ({ children }) => {
           <div style={{ marginLeft: "80px" }}>{children}</div>
         </Sidebar>
       ) : (
-        <div>{children}</div>
+        { children }
       )}
       <MessageHandle />
       <SpinnerComp />

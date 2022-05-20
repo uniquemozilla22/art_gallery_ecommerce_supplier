@@ -1,56 +1,90 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
 import "./App.css";
 import Layout from "./component/Layout";
-import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
-import HomePage from "./pages/Home/Home.page";
-import LoginPage from "./pages/Login/Login.page";
-import Register from "./pages/register/Register.page";
-import OrderPage from "./pages/Order/Order.page";
-import ProfilePage from "./pages/Profile/Profile.page";
 
 function App() {
+  const Dashboard = lazy(() => import("./pages/Home/Home.page"));
+  const Login = lazy(() => import("./pages/Login/Login.page"));
+  const Register = lazy(() => import("./pages/register/Register.page"));
+  const ForgotPassword = lazy(() =>
+    import("./pages/ForgotPassword/ForgotPassword")
+  );
+
+  const Order = lazy(() => import("./pages/Order/Order.page"));
+  const Profile = lazy(() => import("./pages/Profile/Profile.page"));
   return (
     <Layout>
       <Routes>
-        <Route exact path="/">
-          <Route
-            path="/login"
-            element={React.lazy(() => import("./pages/Login/Login.page"))}
-          />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/users/resetPassword/:id/:token"
-            element={React.lazy(() =>
-              import("./pages/ForgotPassword/ForgotPassword")
-            )}
-          />
-          <Route
-            path="/dashboard/*"
-            exact
-            element={React.lazy(() => import("./pages/Home/Home.page"))}
-          />
-          <Route
-            path="/orders/*"
-            exact
-            element={React.lazy(() => import("./pages/Order/Order.page"))}
-          />
-          <Route
-            path="/finance"
-            exact
-            element={React.lazy(() => import("./pages/Home/Home.page"))}
-          />
-          <Route
-            path="/bids"
-            exact
-            element={React.lazy(() => import("./pages/Home/Home.page"))}
-          />
-          <Route
-            path="/profile/*"
-            exact
-            element={React.lazy(() => import("./pages/Profile/Profile.page"))}
-          />
-        </Route>
+        <Route
+          path="/login"
+          element={
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Login />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Register />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/users/resetPassword/:id/:token"
+          element={
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <ForgotPassword />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/dashboard/*"
+          exact
+          element={
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Dashboard />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/orders/*"
+          exact
+          element={
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Order />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/finance"
+          exact
+          element={
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Dashboard />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/bids/*"
+          exact
+          element={
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Dashboard />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/profile/*"
+          exact
+          element={
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Profile />
+            </Suspense>
+          }
+        />
       </Routes>
     </Layout>
   );

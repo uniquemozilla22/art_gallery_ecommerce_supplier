@@ -17,7 +17,7 @@ ReactDOM.render(
       <PersistGate
         loading={<CircularProgress color="inherit" />}
         persistor={persistor}
-      >
+    >
         <BrowserRouter>
           <App />
         </BrowserRouter>

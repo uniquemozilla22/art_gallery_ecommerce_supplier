@@ -13,7 +13,11 @@ const Sidebar = (props) => {
       <div className={classes.container__sidebar}>
         <div className={classes.sidebar}>
           <div className={classes.sidebar_header}>
-            <AvatarComp {...userInfo} />
+            <AvatarComp
+              image={userInfo.image}
+              username={userInfo.username}
+              email={userInfo.email}
+            />
           </div>
           <div className={classes.sidebar_body}>
             <SidebarItem link="Dashboard" icon={<DashboardOutlined />} />
