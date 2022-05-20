@@ -1,25 +1,23 @@
-.profile__component{
-    min-height:100vh;
-}
 
-.profile__component .cover__image{
+
+  .cover__image{
     width: 100%;
     height:35vh;
     overflow:hidden;
     background-color: #2b2b2b;
 }
 
-.profile__component .cover__image img{
+  .cover__image img{
     transition: all 0.3s ease-in;
 }
 
 
 
-.profile__component .image__wrapper{
+  .image__wrapper{
     position: relative;
 }
 
-.profile__component .profile__image{
+  .profile__image{
     position: absolute;
     bottom:0;
     left:0;
@@ -29,11 +27,11 @@
     background:#2b2b2b;
 }
 
-.profile__component .cover__image:hover img{
+  .cover__image:hover img{
     opacity:0.7;
 }
 
-.profile__component .profile__image form,.profile__component .cover__image form{
+  .profile__image form,  .cover__image form{
     position: absolute;
     top:50%;
     left:50%;
@@ -43,7 +41,7 @@
 
 }
 
-.profile__component .profile__image form label,.profile__component .cover__image form label{
+  .profile__image form label,  .cover__image form label{
     color:#f8f8f8;
     border:1px solid #f8f8f8;
     padding:0.5rem 1rem;
@@ -56,21 +54,21 @@
 }
 
 
-.profile__component .profile__image img{
+  .profile__image img{
     transition: all 0.3s ease-in;
 
 }
 
-.profile__component .profile__image:hover form,.profile__component .cover__image:hover form{
+  .profile__image:hover form,  .cover__image:hover form{
     opacity:1
 }
 
 
-.profile__component .profile__image:hover img{
+  .profile__image:hover img{
     opacity:0.5;
 }
 
-.profile__component .cover__image img{
+  .cover__image img{
     width: 100%;
     height:100%;
     background:#2b2b2b;
