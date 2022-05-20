@@ -12,6 +12,10 @@ const ProfileComponent = () => {
             src="https://wallpaperaccess.com/full/2667331.jpg"
             alt={"cover"}
           />
+          <form>
+            <label for="cover">Upload</label>
+            <input id="cover" type="file" className="d-none" />
+          </form>
         </div>
         <div className={classes.profile__image}>
           {user.image ? (
@@ -20,12 +24,21 @@ const ProfileComponent = () => {
               src={user.image}
               variant="rounded"
               sx={{ width: "100%", height: "100%" }}
+              className={classes.image__avatar}
             />
           ) : (
-            <Avatar variant="rounded" sx={{ width: "100%", height: "100%" }}>
-              {user.username.charAt(0)}
+            <Avatar
+              variant="rounded"
+              sx={{ width: "100%", height: "100%" }}
+              className={classes.image__avatar}
+            >
+              {user.username?.charAt(0)}
             </Avatar>
           )}
+          <form>
+            <label for="profile">Upload</label>
+            <input id="profile" type="file" className="d-none" />
+          </form>
         </div>
       </div>
     </div>

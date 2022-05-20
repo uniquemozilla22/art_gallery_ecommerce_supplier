@@ -20,6 +20,8 @@ const Layout = (props) => {
       if (SidebarRestricted.includes(location.pathname)) {
         navigate("/");
       }
+    } else {
+      navigate("/login");
     }
   }, [SidebarRestricted, location.pathname, navigate, token, tokenRedux]);
 

@@ -17,7 +17,7 @@ const AvatarComp = ({ username, image, email }) => {
     console.log(logout);
     if (logout) navigate("/login");
   };
-  return (
+  return (  
     <div className={classes.avatar}>
       <Dropdown className={classes.dropdown}>
         <Dropdown.Toggle
@@ -35,7 +35,7 @@ const AvatarComp = ({ username, image, email }) => {
           </Tooltip>
         </Dropdown.Toggle>
         <Dropdown.Menu align="end" drop={"up"}>
-          <Dropdown.Item onClick={() => navigate("/profile")}>
+          <Dropdown.Item onClick={() => navigate("/profile/")}>
             Profile
           </Dropdown.Item>
           <Dropdown.Divider />

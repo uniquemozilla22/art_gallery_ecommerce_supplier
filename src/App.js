@@ -86,7 +86,7 @@ function App() {
           path="/profile/*"
           exact
           element={
-            <Suspense fallback={<SpinnerComp fallback />}>
+            <Suspense fallback={<Spinner />}>
               <Profile />
             </Suspense>
           }

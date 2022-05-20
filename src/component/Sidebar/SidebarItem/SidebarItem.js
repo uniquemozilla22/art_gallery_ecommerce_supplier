@@ -6,7 +6,7 @@ import { Tooltip } from "@mui/material";
 const SidebarItem = ({ link, data, icon }) => {
   return (
     <NavLink
-      to={`/${link.toLowerCase()}`}
+      to={`/${link.toLowerCase()}/`}
       className={({ isActive }) => {
         return !isActive ? null : classes.active;
       }}

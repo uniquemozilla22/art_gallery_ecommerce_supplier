@@ -5,13 +5,11 @@ import SidebarItem from "./../Sidebar/SidebarItem/SidebarItem";
 import classes from "./PageHeadingLinks.module.css";
 
 const PageHeadingLink = ({ link }) => {
-  const [active, setActive] = useState(false);
   return (
     <div className={classes.pageHeadingLink}>
       <NavLink
         to={`./`}
         className={({ isActive }) => {
-          setActive(isActive);
           return !isActive ? null : classes.active;
         }}
       >
@@ -26,7 +24,6 @@ const PageHeadingLink = ({ link }) => {
           key={index}
           to={`${link}`}
           className={({ isActive }) => {
-            setActive(isActive);
             return !isActive ? null : classes.active;
           }}
         >

@@ -12,7 +12,7 @@ const Greeting = ({ name }) => {
   return (
     <div className={classes.greeting__container}>
       <h2>
-        {greetingTime()} , <span>{name.split(" ")[0]}</span>
+        {greetingTime()} , <span>{name?.split(" ")[0]}</span>
       </h2>
       <p>See what happened to your products</p>
     </div>
