@@ -8,6 +8,19 @@ const PageHeadingLink = ({ link }) => {
   const [active, setActive] = useState(false);
   return (
     <div className={classes.pageHeadingLink}>
+      <NavLink
+        to={`./`}
+        className={({ isActive }) => {
+          setActive(isActive);
+          return !isActive ? null : classes.active;
+        }}
+      >
+        <div className={classes.title}>
+          <Tooltip title={"Home"}>
+            <span>Home</span>
+          </Tooltip>
+        </div>
+      </NavLink>
       {link.map((link, index) => (
         <NavLink
           key={index}

@@ -1,9 +1,15 @@
 import React, { lazy, Suspense } from "react";
+import { Spinner } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router";
 import "./App.css";
 import Layout from "./component/Layout";
+import SpinnerComp from "./component/Spinner/Spinner";
+import LoginPage from "./pages/Login/Login.page";
+import { showLoading } from "./store/actions/Loading/Loading";
 
 function App() {
+  const dispatch = useDispatch();
   const Dashboard = lazy(() => import("./pages/Home/Home.page"));
   const Login = lazy(() => import("./pages/Login/Login.page"));
   const Register = lazy(() => import("./pages/register/Register.page"));
@@ -19,7 +25,7 @@ function App() {
         <Route
           path="/login"
           element={
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={<Spinner />}>
               <Login />
             </Suspense>
           }
@@ -44,7 +50,7 @@ function App() {
           path="/dashboard/*"
           exact
           element={
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={<Spinner />}>
               <Dashboard />
             </Suspense>
           }
@@ -80,7 +86,7 @@ function App() {
           path="/profile/*"
           exact
           element={
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={<SpinnerComp fallback />}>
               <Profile />
             </Suspense>
           }

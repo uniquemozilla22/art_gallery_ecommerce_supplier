@@ -5,7 +5,7 @@ import PageHeadingLink from "../../component/PageHeadingLinks/PageHeadingLinks.c
 import classes from "./Home.module.css";
 
 const Homepage = () => {
-  let heading = ["home", "products", "profile"];
+  let heading = ["products", "profile"];
   return (
     <div className="container-fluid">
       <PageHeadingLink link={heading} />

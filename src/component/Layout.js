@@ -5,7 +5,7 @@ import MessageHandle from "./ErrorHandle/ErrorHandle";
 import Sidebar from "./Sidebar/Sidebar";
 import SpinnerComp from "./Spinner/Spinner";
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
   const tokenRedux = useSelector((state) => state.user.token);
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,18 +20,17 @@ const Layout = ({ children }) => {
       if (SidebarRestricted.includes(location.pathname)) {
         navigate("/");
       }
-    } else {
-      navigate("/login");
     }
   }, [SidebarRestricted, location.pathname, navigate, token, tokenRedux]);
+
   return (
     <>
       {!SidebarRestricted.includes(location.pathname) ? (
         <Sidebar>
-          <div style={{ marginLeft: "80px" }}>{children}</div>
+          <div style={{ marginLeft: "80px" }}>{props.children}</div>
         </Sidebar>
       ) : (
-        { children }
+        <>{props.children}</>
       )}
       <MessageHandle />
       <SpinnerComp />

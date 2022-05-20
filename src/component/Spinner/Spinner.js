@@ -15,7 +15,16 @@ const SpinnerComp = (props) => {
   }, [spinner]);
 
   const handleClose = () => dispatch(hideLoading());
-  return (
+  return props.fallback ? (
+    <Spinner
+      animation="border"
+      role="status"
+      variant="light"
+      className={classes.spinner}
+    >
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+  ) : (
     <Modal open={show} onClose={handleClose}>
       <Spinner
         animation="border"
