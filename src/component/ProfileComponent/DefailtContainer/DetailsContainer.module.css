@@ -1,0 +1,134 @@
+.title{
+    margin-bottom: 1rem;
+}
+.title h4{
+    font-weight: 500;
+font-size: 20px;
+}
+
+.detail__container{
+    display: flex;
+    gap:1rem;
+    justify-content: flex-start;
+    align-items:center;
+    flex-wrap:wrap;
+    flex-grow: 3;
+    flex-shrink: 1;
+}
+
+.detail__container .title{
+    flex:1
+}
+
+.detail__container .detail{
+    flex:1;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+.detail__container .detail h5{
+font-weight: 900;
+font-size: 0.9rem;
+color: #676FA3;
+margin: 0;
+text-transform: capitalize;;
+}
+
+.detail__container .detail p{
+font-weight: 400;
+font-size: 1rem;
+color: #2b2b2b;
+}
+
+.modal__body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400;
+    background-color: #fff;
+    padding: 2rem 1rem;
+    border: none;
+    width: 50vw;
+    border-radius: 20px;
+  }
+  
+  .modal__body h2{
+    text-transform: capitalize;
+  }
+  
+  
+  .modal__body p span {
+    text-decoration: underline;
+  }
+  .modal__body p button {
+    background-color: transparent;
+    color: #4267b2;
+    border: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .modal__body {
+      width: 80vw;
+    }
+  }
+  
+  .modal__body .form__modal {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal__body .form__modal .buttons__container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .modal__body .form__modal input,
+  .modal__body .form__modal select {
+    padding: 1rem;
+    border-radius: 20px;
+    margin: 0.5rem 0;
+    border: none;
+    background: #eef2ff;
+    border: 1px solid #4267b2;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+  .modal__body .form__modal input:focus {
+    outline: none;
+  }
+  
+  .modal__body h2 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+  }
+  
+  .modal__body h4 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: darkgreen;
+  }
+  
+  .modal__body .form__modal input[type="submit"] {
+    background: #4267b2;
+    color: #eef2ff;
+    font-weight: bold;
+    font-size: 16px;
+    color: #ffffff;
+    width: 100%;
+  }
+  
+  .modal__body .form__modal .close__button {
+    background: #ffffff;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 20px;
+    color: #ff5959;
+    padding: 0.5rem;
+    width: 100%;
+  }
+  
