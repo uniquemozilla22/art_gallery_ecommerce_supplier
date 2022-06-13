@@ -1,0 +1,52 @@
+.address__container{}
+
+
+.address__container .title{
+    margin-bottom: 1rem;
+}
+
+.title h4{
+    font-weight: 500;
+font-size: 20px;
+}
+
+
+.address__container .add__wrapper{
+
+}
+
+.address__wrapper .address h2{
+    margin: 0;
+    font-weight: 700;
+font-size: 1.2rem;
+color: #000000;
+
+}
+
+
+
+.address__wrapper .address p{
+    margin: 0;
+    font-weight: 400;
+}
+
+.address{
+    position: relative;
+    width: 100%;
+
+}
+
+
+.address__wrapper .address:hover .icon{
+    visibility: visible;
+
+}
+
+.address__wrapper .address .icon{
+    position: absolute;
+    top:0;
+    right:0;
+    visibility: hidden;
+
+
+}

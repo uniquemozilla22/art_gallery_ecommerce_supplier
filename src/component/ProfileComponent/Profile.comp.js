@@ -6,6 +6,7 @@ import ImageContainerComponent from "./ImageContainer/ImageContainer.comp";
 import DetailsContainerComponent from "./DefailtContainer/DetailsContainer.comp";
 import ProfileDataFetch from "../../store/actions/Profile/ProfileData.fetch";
 import { Spinner } from "react-bootstrap";
+import AddressContainer from "./AddressContainer/AddressContainer.comp";
 const ProfileComponent = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -29,6 +30,9 @@ const ProfileComponent = () => {
       setDatas({ ...datas, contact: { ...datas.contact, ...data } });
     }
   };
+
+  const handleUserAddressUpdate = (data) => {};
+
   return (
     <div className={classes.profile__component}>
       <div className={classes.profileImage}>
@@ -46,6 +50,10 @@ const ProfileComponent = () => {
               title={"Contact"}
               data={datas.contact}
               update={handleUserDataUpdate}
+            />
+            <AddressContainer
+              data={datas.address}
+              update={handleUserAddressUpdate}
             />
           </>
         ) : (
