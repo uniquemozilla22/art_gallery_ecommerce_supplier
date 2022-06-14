@@ -1,4 +1,4 @@
-import { DeleteOutlined, EditOutlined } from "@mui/icons-material";
+import { DeleteOutlined } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
 import React from "react";
 import classes from "./Account.module.css";
