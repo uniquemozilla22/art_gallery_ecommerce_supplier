@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./AddPayment.module.css";
 import AccountComponent from "./Account/Account.comp";
+import { Modal } from "@mui/material";
 
-const AddPaymentComponent = ({ accounts }) => {
+const AddPaymentComponent = ({ accounts, handleSelection }) => {
   return (
     <div className={classes.addPaymentMethod}>
       <div className={classes.title}>
@@ -11,7 +12,11 @@ const AddPaymentComponent = ({ accounts }) => {
       </div>
       <div className={classes.link_accounts}>
         {accounts.map((account, index) => (
-          <AccountComponent key={index} account={account} />
+          <AccountComponent
+            key={index}
+            account={account}
+            handleSelection={handleSelection}
+          />
         ))}
       </div>
     </div>
