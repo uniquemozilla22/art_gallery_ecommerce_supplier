@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "./AddPayment.module.css";
-import AccountComponent from "./Account/Account.comp";
+import AccountComponent from "../Account/Account.comp";
 import { Modal } from "@mui/material";
 
 const AddPaymentComponent = ({ accounts, handleSelection }) => {

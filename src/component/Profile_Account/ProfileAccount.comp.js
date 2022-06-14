@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import AddPaymentComponent from "./AddPayment/AddPayment.comp";
 import classes from "./ProfileAccount.module.css";
 import { Modal } from "@mui/material";
+import ConnectedAccountsComponents from "./ConnectedAccounts/ConnectedAccounts.comp";
 
 const ProfileAccount = () => {
   const [accounts, setAccounts] = useState([
@@ -95,7 +96,7 @@ const ProfileAccount = () => {
   return (
     <>
       <div className={classes.connected__account}>
-        <h2>Connected Acconts</h2>
+        <ConnectedAccountsComponents accounts={accounts} />
       </div>
       <div className={classes.profileAccount}>
         <AddPaymentComponent
