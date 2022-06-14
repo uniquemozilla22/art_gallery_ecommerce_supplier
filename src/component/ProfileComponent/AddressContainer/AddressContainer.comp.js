@@ -133,11 +133,11 @@ export const FormCreatorAddress = ({ data, updateData, addData, cancel }) => {
           setAddress({ ...address, country: JSON.parse(e.target.value) });
         }}
       >
+        <option disabled selected>
+          ---Select Your Country---
+        </option>
         {countriesList && countriesList.length !== 0 && (
           <>
-            <option disabled selected>
-              ---Select Your Country---
-            </option>
             {countriesList.map((country, index) => (
               <option
                 value={JSON.stringify({ id: country.id, name: country.name })}
