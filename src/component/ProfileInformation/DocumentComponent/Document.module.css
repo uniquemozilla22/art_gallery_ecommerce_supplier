@@ -1,0 +1,123 @@
+
+.accordion__container{
+    background-color:#E8EBFE;
+    padding:1rem 2rem;
+    border-radius: 20px !important;
+    border:none !important;
+}
+
+.accordion__title{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+}
+
+
+.accordion__title h4{
+    margin:0;
+    font-size:1.2rem;
+    font-weight: 500;
+    flex:1;
+}
+
+.accordion__title p{
+    margin: 0;
+    font-size: 1rem;
+    padding:0.2rem 1rem;
+    border-radius: 20px;
+
+}
+
+
+.accordion__title p.verified{
+    color: #3EE802;
+    border:1px solid #3EE802;
+}
+
+.accordion__title p.not_verified{
+    color: #FF5959;
+    border:1px solid #FF5959;
+}
+
+.accordion__container .card__registration{
+    display:flex;
+    justify-content:start;
+    gap:1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+.card__registration{
+    flex:1;
+}
+
+.card__registration input{
+    padding:1rem ;
+    border-radius: 20px;
+    outline:none;
+    border:none;
+}
+
+
+.card__registration input::placeholder{
+    text-transform: capitalize;
+}
+.accordion__form__container{
+    display: flex;
+    justify-content:space-between
+}
+.image__display{
+    flex:1;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+
+}
+
+
+.image__display img{
+    max-height:100px;
+}
+
+.card__registration .image__group{
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+}
+
+.card__registration .image__input__container{
+    display:flex;
+    gap:2rem;
+}
+
+
+.card__registration .image__group input{
+ display: none;
+}
+
+.card__registration h5{
+    text-transform: uppercase;
+}
+
+
+
+.card__registration .image__group label{
+   background-color:  #676FA3;
+   padding:1rem 2rem;
+   color:#f8f8f8;
+   border-radius:100px;
+   text-transform: capitalize;
+   cursor: pointer;
+   border:1px solid transparent;
+   transition: all 0.1s ease-in;
+}
+
+
+.card__registration .image__group label:hover{
+    background-color:#f8f8f8;
+    color:#676FA3;
+    border:1px solid #676FA3;
+}

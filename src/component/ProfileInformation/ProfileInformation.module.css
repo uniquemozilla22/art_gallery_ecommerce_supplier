@@ -1,0 +1,11 @@
+.product__information__container
+{
+
+}
+
+.product__information__container .title__container h3{
+    font-size: 1.4rem;
+    font-weight:900;
+}
+
+
