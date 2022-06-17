@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { ExpandMore } from "@mui/icons-material";
 import classes from "./Document.module.css";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
-const DocumentComponent = ({ name, verified, data }) => {
+const DocumentComponent = ({ name, verified, data  }) => {
+  const [info, setInfo] = useState({ ...data });
+
   return (
     <Accordion className={classes.accordion__container}>
       <AccordionSummary
@@ -19,8 +21,8 @@ const DocumentComponent = ({ name, verified, data }) => {
       <AccordionDetails>
         <div className={classes.accordion__form__container}>
           <form className={classes.card__registration}>
-            {Object.keys(data).map((key, index) => {
-              if (data[key] === null) {
+            {Object.keys(info).map((key, index) => {
+              if (info[key] === null) {
                 return (
                   <>
                     <h5>{key}</h5>
@@ -29,6 +31,9 @@ const DocumentComponent = ({ name, verified, data }) => {
                       key={index}
                       index={index}
                       type={key}
+                      onChange={(e) =>
+                        setInfo({ ...info, [key]: e.target.value })
+                      }
                     />
                   </>
                 );
@@ -37,37 +42,56 @@ const DocumentComponent = ({ name, verified, data }) => {
                   <>
                     <h5>{key}</h5>
                     <div className={classes.image__input__container}>
-                      {Object.keys(data[key]).map((k, v) => (
-                        <InputCreator name={k} key={v} index={v} type={key} />
+                      {Object.keys(info[key]).map((k, v) => (
+                        <InputCreator
+                          name={k}
+                          key={v}
+                          index={v}
+                          type={key}
+                          onChange={(e) =>
+                            setInfo({
+                              ...info,
+                              [key]: { ...info[key], [k]: e.target.value },
+                            })
+                          }
+                        />
                       ))}
                     </div>
                   </>
-                );
+                ); 
               }
             })}
           </form>
-          <div className={classes.image__display}>
-            <img src={"./"} alt="front" />
-            <img src={"./"} alt="back" />
-          </div>
+          {(info.images.front || info.images.back) && (
+            <div className={classes.image__display}>
+              <img src={info.images.front} alt="front" />
+              <img src={info.images.back} alt="back" />
+            </div>
+          )}
         </div>
       </AccordionDetails>
     </Accordion>
   );
 };
 
-const InputCreator = ({ name, index, type }) => {
+const InputCreator = ({ name, index, type, onChange }) => {
   if (type === "images") {
     return (
       <div className={classes.image__group}>
-        <label for={name}>{name}</label>
-        <input id={name} type="file" placeholder={name} />
+        <label htmlFor={name}>{name}</label>
+        <input id={name} type="file" placeholder={name} onChange={onChange} />
       </div>
     );
   } else
     return (
       <>
-        <input id={name} name={name} type="text" placeholder={name} />
+        <input
+          id={name}
+          name={name}
+          type="text"
+          placeholder={name}
+          onChange={onChange}
+        />
       </>
     );
 };
