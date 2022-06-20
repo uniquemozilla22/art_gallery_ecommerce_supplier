@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import { ExpandMore } from "@mui/icons-material";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import classes from "./Document.module.css";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
-const DocumentComponent = ({ name, verified, data  }) => {
+const DocumentComponent = ({ name, verified, data, expanded, toExpand }) => {
   const [info, setInfo] = useState({ ...data });
 
   return (
-    <Accordion className={classes.accordion__container}>
+    <Accordion
+      onChange={() => toExpand()}
+      className={classes.accordion__container}
+      expanded={expanded}
+    >
       <AccordionSummary
-        expandIcon={<ExpandMore />}
+        expandIcon={<ArrowDropDownIcon />}
         className={classes.accordion__title}
+        s
       >
         <h4>{name}</h4>
         {verified ? (
@@ -24,22 +29,21 @@ const DocumentComponent = ({ name, verified, data  }) => {
             {Object.keys(info).map((key, index) => {
               if (info[key] === null) {
                 return (
-                  <>
+                  <div key={index}>
                     <h5>{key}</h5>
                     <InputCreator
                       name={key}
-                      key={index}
                       index={index}
                       type={key}
                       onChange={(e) =>
                         setInfo({ ...info, [key]: e.target.value })
                       }
                     />
-                  </>
+                  </div>
                 );
               } else {
                 return (
-                  <>
+                  <div key={index}>
                     <h5>{key}</h5>
                     <div className={classes.image__input__container}>
                       {Object.keys(info[key]).map((k, v) => (
@@ -57,15 +61,15 @@ const DocumentComponent = ({ name, verified, data  }) => {
                         />
                       ))}
                     </div>
-                  </>
-                ); 
+                  </div>
+                );
               }
             })}
           </form>
           {(info.images.front || info.images.back) && (
             <div className={classes.image__display}>
-              <img src={info.images.front} alt="front" />
-              <img src={info.images.back} alt="back" />
+              {info.images.front && <img src={info.images.front} alt="front" />}
+              {info.images.back && <img src={info.images.back} alt="back" />}
             </div>
           )}
         </div>

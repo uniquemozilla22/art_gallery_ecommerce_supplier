@@ -10,14 +10,11 @@ const AvatarComp = ({ username, image, email }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log(image);
-
   const logoutAction = async () => {
     const logout = await dispatch(LogoutAction());
-    console.log(logout);
     if (logout) navigate("/login");
   };
-  return (  
+  return (
     <div className={classes.avatar}>
       <Dropdown className={classes.dropdown}>
         <Dropdown.Toggle

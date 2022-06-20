@@ -50,6 +50,12 @@
 }
 
 
+
+.card__registration > div{
+    width:100%;
+}
+
+
 .card__registration{
     flex:1;
 }

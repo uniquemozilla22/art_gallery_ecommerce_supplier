@@ -8,4 +8,25 @@
     font-weight:900;
 }
 
+.verified__documents{
+    display:flex;
+    gap:2rem;
+    flex-direction: column;
+}
+
+.add__documents__button{
+    padding:1rem 0;
+    background:0;
+    text-align:center;
+    color:#676FA3;
+    font-weight: 700;
+    cursor:pointer;
+}
+
+
+.add__documents__button:hover{
+    color:#2b2b2b;
+
+}
+
 

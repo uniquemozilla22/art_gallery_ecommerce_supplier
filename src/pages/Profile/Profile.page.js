@@ -8,7 +8,7 @@ import ProfileAccount from "./../../component/Profile_Account/ProfileAccount.com
 const ProfilePage = () => {
   let heading = ["account", "information_details"];
   return (
-    <div>
+    <div style={{ marginRight: "1rem" }}>
       <PageHeadingLink link={heading} />
       <Routes>
         <Route path="/" element={<ProfileComponent />} />
