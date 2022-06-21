@@ -3,7 +3,6 @@ import classes from "./RegisterForm.module.css";
 import { FacebookOutlined, Google, Twitter } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
-import { Fade } from "react-reveal";
 import RegisterAction from "../../store/actions/Authentication/Registration/Register.post";
 import LoginSocialButton from "../SocialLogin/LoginSocial.button";
 
@@ -142,7 +141,7 @@ const RegisterForm = (props) => {
   };
 
   return (
-    <Fade>
+    <>
       <div className={classes.register__form}>
         <div className={"" + classes.title__register}>
           <h1>Register.</h1>
@@ -347,7 +346,7 @@ const RegisterForm = (props) => {
           </div>
         </div>
       </div>
-    </Fade>
+    </>
   );
 };
 

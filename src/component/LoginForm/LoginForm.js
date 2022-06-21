@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { FacebookOutlined, Google } from "@mui/icons-material";
 import { connect, useDispatch } from "react-redux";
 import ForgotPassword from "../forgotPassword/ForgotPassword";
-import { Fade } from "react-reveal";
 import LoginAction, {
   LogoutAction,
 } from "../../store/actions/Authentication/Login/Login.action";
@@ -105,7 +104,7 @@ const LoginForm = (props) => {
   };
 
   return (
-    <Fade>
+    <>
       <div className={classNameContainer()}>
         <div className={classes.title__login}>
           <h1>Login.</h1>
@@ -189,7 +188,7 @@ const LoginForm = (props) => {
         toggleForgetPassword={() => props.toggleForgetPassword()}
         sendMail={props.sendMail}
       />
-    </Fade>
+    </>
   );
 };
 const mapStateToProps = (state, ownProps) => {

@@ -1,11 +1,9 @@
 import React from "react";
 import classes from "./Banner.module.css";
 import FeatherIcons from "feather-icons-react";
-import { Fade } from "react-reveal";
 
 const Banner = () => {
   return (
-    <Fade>
       <div className={classes.login__banner}>
         <h2>Welcome Artist,</h2>
 
@@ -41,7 +39,6 @@ const Banner = () => {
           <a href="/">Go to Customer Login</a>
         </div>
       </div>
-    </Fade>
   );
 };
 
