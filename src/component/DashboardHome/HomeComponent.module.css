@@ -1,8 +1,9 @@
 .home___component{
     display:flex;
+    justify-content:space-between;
     flex-direction:column;
-    justify-content:space-evenly;
-    height:100vh;
+    gap:1rem;
+    max-height:100vh;
 }
 
 .home__container{
@@ -14,20 +15,25 @@
 }
 
 .home__container .data__container{
-    flex:2;
-    display:inline-flex;
-    flex-direction: column;
+    display: flex;
+    align-items:start;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    width:100%;
     gap:1rem;
 }
 
 .data__container .single__data__container{
-    display: inline-flex;
+    flex:1;
+    display: grid;
+    grid-template-columns:1fr 1fr;
     justify-content: space-between;
-    align-items:center;
+    align-items:flex-start;
     gap:1rem;
     flex-wrap: wrap;
 }
 
-.home__container .notification__container{
-    flex:1;
+.home___component .multiple__data__container{
+    flex:2;
+    
 }

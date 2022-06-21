@@ -14,6 +14,9 @@ const HomeComponent = () => {
       { name: "likes", items: "900", icon: "heart" },
       { name: "product_likes", items: "900", icon: "thumbs-up" },
       { name: "followers", items: "900", icon: "users" },
+      { name: "Shipped Orders", items: "900", icon: "users" },
+      { name: "Sales Orders", items: "900", icon: "users" },
+      { name: "Product", items: "9", icon: "users" },
     ],
     [
       {
@@ -45,14 +48,17 @@ const HomeComponent = () => {
   ];
   return (
     <div className={classes.home___component}>
-      <Greeting name={username} />
+      <Greeting name={username} balance={987722} />
       <div className={classes.home__container}>
         <div className={classes.data__container}>
-          {data
-            .filter((item) => item.length > 1)
-            .map((data, index) => (
-              <MultipleData key={index} data={data} />
-            ))}
+          <div className={classes.multiple__data__container}>
+            {data
+              .filter((item) => item.length > 1)
+              .map((data, index) => (
+                <MultipleData key={index} data={data} />
+              ))}
+          </div>
+
           <div className={classes.single__data__container}>
             {data
               .filter((item) => item.length === 1)
@@ -60,9 +66,6 @@ const HomeComponent = () => {
                 <SingleData key={index} data={data} />
               ))}
           </div>
-        </div>
-        <div className={classes.notification__container}>
-          <NotificationComp />
         </div>
       </div>
     </div>

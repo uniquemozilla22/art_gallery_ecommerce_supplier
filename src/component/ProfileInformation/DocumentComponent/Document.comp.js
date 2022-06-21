@@ -15,7 +15,7 @@ const DocumentComponent = ({ name, verified, data, expanded, toExpand }) => {
         expandIcon={<ArrowDropDownIcon />}
         className={classes.accordion__title}
         s
-      >
+      > 
         <h4>{name}</h4>
         {verified ? (
           <p className={classes.verified}>Verified</p>
