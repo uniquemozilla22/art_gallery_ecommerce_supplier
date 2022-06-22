@@ -11,13 +11,14 @@ import { PersistGate } from "redux-persist/integration/react";
 import { CircularProgress } from "@mui/material";
 import "animate.css";
 
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate
         loading={<CircularProgress color="inherit" />}
         persistor={persistor}
-    >
+      >
         <BrowserRouter>
           <App />
         </BrowserRouter>
