@@ -97,16 +97,6 @@ const HomeComponent = () => {
                 <SingleData key={index} data={data} />
               ))}
           </div>
-          <div className={classes.doughnut__chart__container}>
-            <div className={classes.title}>
-              <h3>Product By Category</h3>
-            </div>
-            <DoughnutChart
-              name={"Product By Category"}
-              labels={["one", "two", "three", "four"]}
-              data={[1, 2, 3, 4]}
-            />
-          </div>
           <div className={classes.line__chart__container}>
             <div className={classes.title}>
               <h3>Product By Category</h3>
@@ -131,7 +121,7 @@ const HomeComponent = () => {
           </div>
           <div className={classes.doughnut__chart__container}>
             <div className={classes.title}>
-              <h3>Product By Category</h3>
+              <h3>Sales By Product</h3>
             </div>
             <DoughnutChart
               name={"Product By Category"}

@@ -3,15 +3,16 @@ import { Route, Routes } from "react-router";
 import HomeComponent from "../../component/DashboardHome/HomeComponent.comp";
 import PageHeadingLink from "../../component/PageHeadingLinks/PageHeadingLinks.comp";
 import classes from "./Home.module.css";
+import OrderPage from "./Order/Order.page";
 
 const Homepage = () => {
-  let heading = ["products", "profile"];
+  let heading = ["products", "orders", "profile"];
   return (
     <div className="container-fluid">
       <PageHeadingLink link={heading} />
-      <h1 className={classes.pagetitle}>Dashboard</h1>
       <Routes>
         <Route path="/" element={<HomeComponent />}></Route>
+        <Route path="/orders" element={<OrderPage />}></Route>
       </Routes>
     </div>
   );
