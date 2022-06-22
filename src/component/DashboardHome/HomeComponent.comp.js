@@ -107,7 +107,7 @@ const HomeComponent = () => {
               data={[1, 2, 3, 4]}
             />
           </div>
-          <div className={classes.doughnut__chart__container}>
+          <div className={classes.line__chart__container}>
             <div className={classes.title}>
               <h3>Product By Category</h3>
             </div>
@@ -121,10 +121,11 @@ const HomeComponent = () => {
                 "May",
                 "June",
                 "July",
+                "August",
               ]}
               data={[
                 { label: "Dataset 1", data: [10, 20, 30, 40, 50, 20, 10, 40] },
-                { label: "Dataset 2", data: [10, 20, 30, 40, 50, 20, 10, 40] },
+                { label: "Dataset 2", data: [20, 30, 40, 50, 60, 100, 10, 20] },
               ]}
             />
           </div>

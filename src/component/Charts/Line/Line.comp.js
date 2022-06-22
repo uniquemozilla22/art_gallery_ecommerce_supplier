@@ -1,26 +1,23 @@
 import React from "react";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
 import { Line } from "react-chartjs-2";
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+import generateRandomColor from "./../Services/RandomColorGenerator";
 
 const LineComponent = ({ name, labels, data }) => {
+  const datasetCreator = () => {
+    return data.map((item, index) => {
+      const colorpicker = generateRandomColor();
+      const dataSet = {
+        label: item.label,
+        data: item.data,
+        borderColor: colorpicker,
+        backgroundColor: `${colorpicker}20`,
+        yAxisID: "y" + index,
+      };
+
+      return dataSet;
+    });
+  };
+
   const options = {
     responsive: true,
     interaction: {
@@ -34,47 +31,13 @@ const LineComponent = ({ name, labels, data }) => {
         text: { name },
       },
     },
-    scales: {
-      y: {
-        type: "linear",
-        display: true,
-        position: "left",
-      },
-      y1: {
-        type: "linear",
-        display: true,
-        position: "right",
-        grid: {
-          drawOnChartArea: false,
-        },
-      },
-    },
   };
 
   const chartData = {
     labels,
-    datasets: [
-      {
-        label: "Dataset 1",
-        data: [10, 20, 30, 40, 50, 20, 10, 40],
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-        yAxisID: "y",
-      },
-      {
-        label: "Dataset 2",
-        data: [1, 60, 30, 10, 20, 60, 10, 50],
-        borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
-        yAxisID: "y1",
-      },
-    ],
+    datasets: [...datasetCreator()],
   };
 
-  const data = {
-    labels,
-    dataset: data,
-  };
   return <Line options={options} data={chartData} />;
 };
 
