@@ -1,0 +1,13 @@
+.order__page__container{
+    display: grid;
+    grid-template-columns:2fr 1fr;
+}
+
+.single__data__container{
+    display:flex;
+    justify-content: space-between;
+    gap:1rem;
+    align-items:center;
+    flex-wrap:wrap;
+}
+

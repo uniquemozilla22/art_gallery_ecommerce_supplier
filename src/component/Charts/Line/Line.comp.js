@@ -24,7 +24,6 @@ const LineComponent = ({ name, labels, data }) => {
       mode: "index",
       intersect: false,
     },
-    stacked: false,
     plugins: {
       title: {
         display: true,

@@ -11,9 +11,8 @@ const DoughnutChart = ({ data, name, labels }) => {
     responsive: true,
     interaction: {
       mode: "index",
-      intersect: false,
+      intersect: true,
     },
-    stacked: false,
     plugins: {
       title: {
         display: true,
