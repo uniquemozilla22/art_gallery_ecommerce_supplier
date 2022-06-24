@@ -6,7 +6,19 @@ import generateRandomColor from "./../Services/RandomColorGenerator";
 const DoughnutChart = ({ data, name, labels }) => {
   const colors = labels.map(() => generateRandomColor());
   const colors20 = colors.map((color) => color + "20");
+  const datasetCreator = () => {
+    return data.map((item, index) => {
+      const dataSet = {
+        label: item.label,
+        data: item.data,
+        borderColor: colors,
+        backgroundColor: colors20,
+        borderWidth: 1,
+      };
 
+      return dataSet;
+    });
+  };
   const options = {
     responsive: true,
     interaction: {
@@ -22,16 +34,9 @@ const DoughnutChart = ({ data, name, labels }) => {
   };
   const chartData = {
     labels: labels,
-    datasets: [
-      {
-        label: name,
-        data: data,
-        backgroundColor: colors20,
-        borderColor: colors,
-        borderWidth: 1,
-      },
-    ],
+    datasets: [...datasetCreator()],
   };
+
   return <Doughnut options={options} data={chartData} />;
 };
 

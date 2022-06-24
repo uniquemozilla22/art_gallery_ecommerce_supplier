@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import classes from "./HomeOrderPage.module.css";
 import SingleData from "../../../component/DashboardHome/SingleData/SingleData.comp";
 import RecentComponent from "../../../component/RecentsComponent/RecentComponent.comp";
+import DoughnutChart from "./../../../component/Charts/Doughnut/Doughnut.comp";
+import LineComponent from "./../../../component/Charts/Line/Line.comp";
+import { Doughnut } from "react-chartjs-2";
 
 const OrderPage = () => {
   const [data, setData] = useState({
@@ -29,6 +32,47 @@ const OrderPage = () => {
         },
       },
     ],
+    charts: [
+      {
+        name: "Orders By Category",
+        type: "line",
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+        ],
+        data: [
+          {
+            label: "Category One",
+            data: [10, 20, 30, 45, 50, 20, 10, 40],
+          },
+          {
+            label: "Category 2",
+            data: [20, 30, 40, 50, 65, 90, 10, 20],
+          },
+        ],
+      },
+      {
+        name: "Orders By Category",
+        type: "doughnut",
+        labels: ["one", "two", "three", "four"],
+        data: [
+          {
+            label: "Category One",
+            data: [10, 20, 30, 45, 50, 20, 10, 40],
+          },
+          {
+            label: "Category 2",
+            data: [20, 30, 40, 50, 65, 90, 10, 20],
+          },
+        ],
+      },
+    ],
   });
   return (
     <div className={classes.order__page__container}>
@@ -50,9 +94,38 @@ const OrderPage = () => {
         <RecentComponent
           title="Recent Orders"
           data={data.recent_orders}
-          link={"./orders"}
+          link={"/orders"}
         />
       </div>
+      {data.charts.map((chart, index) => {
+        if (chart.type === "line")
+          return <LineContainer {...chart} key={index} />;
+        else if (chart.type === "doughnut")
+          return <DoughnutContainer {...chart} key={index} />;
+        else return <></>;
+      })}
+    </div>
+  );
+};
+
+const LineContainer = (props) => {
+  return (
+    <div className={classes.line__chart__container}>
+      <div className={classes.title}>
+        <h3>{props.name}</h3>
+      </div>
+      <LineComponent {...props} />
+    </div>
+  );
+};
+
+const DoughnutContainer = (props) => {
+  return (
+    <div className={classes.doughnut__chart__container}>
+      <div className={classes.title}>
+        <h3>{props.name}</h3>
+      </div>
+      <DoughnutChart {...props} />
     </div>
   );
 };

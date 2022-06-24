@@ -3,17 +3,14 @@ import { Link } from "react-router-dom";
 import classes from "./RecentComponent.module.css";
 import RecentlistItemsComponent from "./RecentsListItem.comp";
 
-const RecentComponent = ({ name, data, link }) => {
+const RecentComponent = ({ title, data, link }) => {
   return (
-    <div className={classes.recents__container}>
+    <div className={classes.recent__lists}>
       <div className={classes.title}>
-        <h3>{name}</h3>
+        <h2>{title}</h2>
+        <Link to={link}>See All</Link>
       </div>
-      <div className={classes.recent__lists}>
-        <div className={classes.title}>
-          <h2>{name}</h2>
-          <Link to={link}>{name}</Link>
-        </div>
+      <div className={classes.lists}>
         {data.map((item, index) => (
           <RecentlistItemsComponent
             key={index}
