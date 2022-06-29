@@ -1,6 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import generateRandomColor from "./../Services/RandomColorGenerator";
+import styled from "@emotion/styled";
 
 const LineComponent = ({ name, labels, data }) => {
   const datasetCreator = () => {
@@ -39,5 +40,23 @@ const LineComponent = ({ name, labels, data }) => {
 
   return <Line options={options} data={chartData} />;
 };
+
+export const LineContainer = (props) => {
+  return (
+    <ChartContainer>
+      <div>
+        <h3>{props.name}</h3>
+      </div>
+      <LineComponent {...props} />
+    </ChartContainer>
+  );
+};
+
+const ChartContainer = styled.div({
+  background: "#E8EBFE",
+  padding: "2rem",
+  borderRadius: "20px",
+  flex: " 1 1",
+});
 
 export default LineComponent;

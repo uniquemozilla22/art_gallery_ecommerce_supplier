@@ -1,7 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import generateRandomColor from "./../Services/RandomColorGenerator";
+import styled from "@emotion/styled";
 
 const DoughnutChart = ({ data, name, labels }) => {
   const colors = labels.map(() => generateRandomColor());
@@ -39,5 +39,23 @@ const DoughnutChart = ({ data, name, labels }) => {
 
   return <Doughnut options={options} data={chartData} />;
 };
+
+export const DoughnutContainer = (props) => {
+  return (
+    <ChartContainer>
+      <div>
+        <h3>{props.name}</h3>
+      </div>
+      <DoughnutChart {...props} />
+    </ChartContainer>
+  );
+};
+
+const ChartContainer = styled.div({
+  background: "#E8EBFE",
+  padding: "2rem",
+  borderRadius: "20px",
+  flex: " 1 1",
+});
 
 export default DoughnutChart;

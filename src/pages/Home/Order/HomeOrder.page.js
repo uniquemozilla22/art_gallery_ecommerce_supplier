@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import classes from "./HomeOrderPage.module.css";
 import SingleData from "../../../component/DashboardHome/SingleData/SingleData.comp";
 import RecentComponent from "../../../component/RecentsComponent/RecentComponent.comp";
-import DoughnutChart from "./../../../component/Charts/Doughnut/Doughnut.comp";
-import LineComponent from "./../../../component/Charts/Line/Line.comp";
+import DoughnutChart, {
+  DoughnutContainer,
+} from "./../../../component/Charts/Doughnut/Doughnut.comp";
+import LineComponent, {
+  LineContainer,
+} from "./../../../component/Charts/Line/Line.comp";
 import { Doughnut } from "react-chartjs-2";
 
 const OrderPage = () => {
@@ -104,28 +108,6 @@ const OrderPage = () => {
           return <DoughnutContainer {...chart} key={index} />;
         else return <></>;
       })}
-    </div>
-  );
-};
-
-const LineContainer = (props) => {
-  return (
-    <div className={classes.line__chart__container}>
-      <div className={classes.title}>
-        <h3>{props.name}</h3>
-      </div>
-      <LineComponent {...props} />
-    </div>
-  );
-};
-
-const DoughnutContainer = (props) => {
-  return (
-    <div className={classes.doughnut__chart__container}>
-      <div className={classes.title}>
-        <h3>{props.name}</h3>
-      </div>
-      <DoughnutChart {...props} />
     </div>
   );
 };
