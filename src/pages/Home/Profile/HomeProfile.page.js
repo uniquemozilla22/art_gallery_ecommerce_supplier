@@ -97,9 +97,10 @@ const Container = styled.div`
   display: grid;
   grid-templete-columns: 2fr 1fr;
   gap: 1rem;
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
   }
 `;
 
