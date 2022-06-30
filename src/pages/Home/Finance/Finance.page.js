@@ -2,13 +2,32 @@ import styled from "@emotion/styled";
 import React, { useState } from "react";
 import SingleData from "../../../component/DashboardHome/SingleData/SingleData.comp";
 import FinanceIndicatorComponent from "../../../component/FinanceIndicator/FInanceIndicator.comp";
+import RecentInvoice from "../../../component/RecentInvoice/RecentInvoice.comp";
 
 const FinancePage = () => {
   const [data, setData] = useState({
     singleData: {
-      product_views: { count: 99, icon: "eye" },
-      orders: { count: 5, icon: "box" },
-      customers_interacted: { count: 99, icon: "users" },
+      total_sales: {
+        count: (90000).toLocaleString("en-IN", {
+          style: "currency",
+          currency: "NRS",
+        }),
+        icon: "dollar-sign",
+      },
+      todays_sales: {
+        count: (20000).toLocaleString("en-IN", {
+          style: "currency",
+          currency: "NRS",
+        }),
+        icon: "clock",
+      },
+      profits: {
+        count: (200000).toLocaleString("en-IN", {
+          style: "currency",
+          currency: "NRS",
+        }),
+        icon: "bar-chart",
+      },
     },
     recent_orders: [
       {
@@ -92,6 +111,9 @@ const FinancePage = () => {
       <FinanceIndicatorContainer>
         <FinanceIndicatorComponent balance={balance} />
       </FinanceIndicatorContainer>
+      <RecentInvoiceContainer>
+        <RecentInvoice />
+      </RecentInvoiceContainer>
     </FinancePageContainer>
   );
 };
@@ -109,4 +131,7 @@ const SingleContainer = styled.div`
 `;
 
 const FinanceIndicatorContainer = styled.div``;
+
+const RecentInvoiceContainer = styled.div``;
+
 export default FinancePage;
