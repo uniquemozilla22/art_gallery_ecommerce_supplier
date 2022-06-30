@@ -4,8 +4,6 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router";
 import "./App.css";
 import Layout from "./component/Layout";
-import SpinnerComp from "./component/Spinner/Spinner";
-import LoginPage from "./pages/Login/Login.page";
 import { showLoading } from "./store/actions/Loading/Loading";
 
 function App() {
@@ -19,13 +17,15 @@ function App() {
 
   const Order = lazy(() => import("./pages/Order/Order.page"));
   const Profile = lazy(() => import("./pages/Profile/Profile.page"));
+
+  const loading = () => dispatch(showLoading());
   return (
     <Layout>
       <Routes>
         <Route
           path="/login"
           element={
-            <Suspense fallback={<Spinner />}>
+            <Suspense fallback={loading}>
               <Login />
             </Suspense>
           }
@@ -33,7 +33,7 @@ function App() {
         <Route
           path="/register"
           element={
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={loading}>
               <Register />
             </Suspense>
           }
@@ -41,7 +41,7 @@ function App() {
         <Route
           path="/users/resetPassword/:id/:token"
           element={
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={loading}>
               <ForgotPassword />
             </Suspense>
           }
@@ -59,7 +59,7 @@ function App() {
           path="/orders/*"
           exact
           element={
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={loading}>
               <Order />
             </Suspense>
           }
@@ -68,7 +68,7 @@ function App() {
           path="/finance"
           exact
           element={
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={loading}>
               <Dashboard />
             </Suspense>
           }
@@ -77,7 +77,7 @@ function App() {
           path="/bids/*"
           exact
           element={
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={loading}>
               <Dashboard />
             </Suspense>
           }

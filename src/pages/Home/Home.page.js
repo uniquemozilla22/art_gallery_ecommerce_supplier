@@ -6,7 +6,7 @@ import OrderPage from "./Order/HomeOrder.page";
 import HomeProfilePage from "./Profile/HomeProfile.page";
 
 const Homepage = () => {
-  let heading = ["products", "orders", "profile"];
+  let heading = ["products", "orders", "profile", "finance"];
   return (
     <div className="container-fluid">
       <PageHeadingLink link={heading} />
@@ -14,6 +14,7 @@ const Homepage = () => {
         <Route path="/" element={<HomeComponent />}></Route>
         <Route path="/orders" element={<OrderPage />}></Route>
         <Route path="/profile" element={<HomeProfilePage />}></Route>
+        <Route path="/finance" element={<HomeProfilePage />}></Route>
       </Routes>
     </div>
   );
