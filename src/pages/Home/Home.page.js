@@ -17,7 +17,7 @@ const Homepage = () => {
         <Route path="/profile" element={<HomeProfilePage />}></Route>
         <Route path="/finance" element={<FinancePage />}></Route>
       </Routes>
-    </div>
+    </div> 
   );
 };
 

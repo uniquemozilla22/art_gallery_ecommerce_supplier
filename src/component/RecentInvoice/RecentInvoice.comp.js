@@ -36,6 +36,21 @@ const RecentInvoice = ({ table }) => {
             <RemoveRedEyeOutlined />
           </TableData>
         </TableRow>
+        <TableRow>
+          <TableData front>#354622</TableData>
+          <TableData>
+            {parseInt("20000").toLocaleString("en-IN", {
+              maximumFractionDigits: 2,
+              style: "currency",
+              currency: "NRS",
+            })}
+          </TableData>
+          <TableData>#2b2b2b</TableData>
+          <TableData>{new Date().toLocaleDateString()}</TableData>
+          <TableData end>
+            <RemoveRedEyeOutlined />
+          </TableData>
+        </TableRow>
       </Table>
     </Wrapper>
   );

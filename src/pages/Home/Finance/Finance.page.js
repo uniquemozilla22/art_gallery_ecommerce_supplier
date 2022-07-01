@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
+import { DoughnutContainer } from "../../../component/Charts/Doughnut/Doughnut.comp";
+import { LineContainer } from "../../../component/Charts/Line/Line.comp";
 import SingleData from "../../../component/DashboardHome/SingleData/SingleData.comp";
 import FinanceIndicatorComponent from "../../../component/FinanceIndicator/FInanceIndicator.comp";
 import RecentInvoice from "../../../component/RecentInvoice/RecentInvoice.comp";
@@ -108,12 +110,15 @@ const FinancePage = () => {
           />
         ))}
       </SingleContainer>
-      <FinanceIndicatorContainer>
-        <FinanceIndicatorComponent balance={balance} />
-      </FinanceIndicatorContainer>
-      <RecentInvoiceContainer>
-        <RecentInvoice />
-      </RecentInvoiceContainer>
+      <FinanceIndicatorComponent balance={balance} />
+      <RecentInvoice />
+      {data.charts.map((chart, index) => {
+        if (chart.type === "line")
+          return <LineContainer {...chart} key={index} />;
+        else if (chart.type === "doughnut")
+          return <DoughnutContainer {...chart} key={index} />;
+        else return <></>;
+      })}
     </FinancePageContainer>
   );
 };
@@ -131,7 +136,5 @@ const SingleContainer = styled.div`
 `;
 
 const FinanceIndicatorContainer = styled.div``;
-
-const RecentInvoiceContainer = styled.div``;
 
 export default FinancePage;
