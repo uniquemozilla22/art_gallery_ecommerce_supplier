@@ -95,12 +95,17 @@ const ProductHomePage = () => {
   });
   return (
     <Wrapper>
-      <ProductBannerComponent data={data.banner} />
       <ProductHighLight data={data.featuredProducts} />
+      <ProductBannerComponent data={data.banner} />
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div({});
+const Wrapper = styled.div({
+  display: "flex",
+  gap: "1rem",
+  flexDirection: "column",
+  margin: "0 1rem",
+});
 
 export default ProductHomePage;

@@ -35,14 +35,16 @@ const ProductBannerComponent = ({ data }) => {
 
 const Wrapper = styled.div({
   display: "flex",
+  justifyContent: "space-between",
   alignItems: "center",
-  gap: "2rem",
+  gap: "1rem",
+  flexWrap: "wrap",
 });
 const ConentContainer = styled.div({
   flex: "3",
 });
 const ProductContainer = styled.div({
-  flex: "2",
+  flex: "1",
 });
 
 const ButtonContainer = styled.div({
@@ -71,21 +73,28 @@ const Image = styled.img({
   cursor: "pointer",
   opacity: "0.9",
   transition: "opacity 0.2s ease-in",
+  width: "20vw",
   ":hover": {
     opacity: "1",
+  },
+  "@media(max-width:800px)": {
+    width: "50vw",
+    alignItems: "center",
+    margin: " 1px auto",
   },
 });
 
 const Button = styled.button((props) => ({
-  background: "transparent",
-  border: "1px solid #676FA3",
-  color: "#676FA3",
+  background: props.primary ? "#676FA3" : "transparent",
+  border: props.primary ? "1px solid transparent" : "none",
+  color: props.primary ? "#f8f8f8" : "#676FA380",
   padding: "1rem 2rem",
   borderRadius: "5px",
   transition: "all 0.2s ease-in",
   ":hover": {
-    background: props.primary ? "#676FA3" : "#000000",
-    color: "#f8f8f8",
+    background: "transparent",
+    color: "#676FA3",
+    borderColor: "#676FA3",
   },
 }));
 
