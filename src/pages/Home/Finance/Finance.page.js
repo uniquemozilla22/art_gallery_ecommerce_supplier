@@ -135,6 +135,4 @@ const SingleContainer = styled.div`
   gap: 1rem;
 `;
 
-const FinanceIndicatorContainer = styled.div``;
-
 export default FinancePage;

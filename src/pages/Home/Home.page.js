@@ -7,7 +7,7 @@ import HomeProfilePage from "./Profile/HomeProfile.page";
 import FinancePage from "./Finance/Finance.page";
 
 const Homepage = () => {
-  let heading = ["products", "orders", "profile", "finance"];
+  let heading = ["orders", "profile", "finance"];
   return (
     <div className="container-fluid">
       <PageHeadingLink link={heading} />
@@ -17,7 +17,7 @@ const Homepage = () => {
         <Route path="/profile" element={<HomeProfilePage />}></Route>
         <Route path="/finance" element={<FinancePage />}></Route>
       </Routes>
-    </div> 
+    </div>
   );
 };
 
