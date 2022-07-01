@@ -134,5 +134,5 @@ const SingleContainer = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
 `;
-
+ 
 export default FinancePage;
