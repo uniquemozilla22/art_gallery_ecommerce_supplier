@@ -42,7 +42,7 @@
 
 .accordion__container .card__registration{
     display:flex;
-    justify-content:start;
+    justify-content:flex-start;
     gap:1rem;
     flex-wrap: wrap;
     justify-content: space-between;
