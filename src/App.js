@@ -17,6 +17,7 @@ function App() {
 
   const Order = lazy(() => import("./pages/Order/Order.page"));
   const Profile = lazy(() => import("./pages/Profile/Profile.page"));
+  const ProductPage = lazy(() => import("./pages/Product/Product.page"));
 
   const loading = () => dispatch(showLoading());
   return (
@@ -52,6 +53,15 @@ function App() {
           element={
             <Suspense fallback={<Spinner />}>
               <Dashboard />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/products/*"
+          exact
+          element={
+            <Suspense fallback={loading}>
+              <ProductPage />
             </Suspense>
           }
         />

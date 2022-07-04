@@ -1,5 +1,4 @@
 .order__page__container{
-
     display: grid;
     grid-template-columns:2fr 1fr;
     row-gap:3rem;

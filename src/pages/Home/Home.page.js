@@ -19,6 +19,6 @@ const Homepage = () => {
       </Routes>
     </div>
   );
-};
+}; 
 
 export default Homepage;
