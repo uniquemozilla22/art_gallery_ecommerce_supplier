@@ -12,35 +12,33 @@ const ProductAuction = () => {
       <AutionContainer>
         <AutionItemComponent
           image={"https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg"}
+          time={new Date(2022, 11, 24, 10, 33, 30, 0).toString()}
         />
         <AutionItemComponent
           image={
             "https://image.shutterstock.com/image-illustration/modern-illustration-linocut-style-surreal-260nw-1913052853.jpg"
           }
+          time={new Date(2022, 12, 24, 10, 33, 50, 0).toString()}
         />
         <AutionItemComponent
           image={"https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg"}
+          time={new Date(2022, 11, 24, 10, 33, 30, 0).toString()}
         />
         <AutionItemComponent
           image={
             "https://image.shutterstock.com/image-illustration/modern-illustration-linocut-style-surreal-260nw-1913052853.jpg"
           }
+          time={new Date(2022, 12, 24, 10, 33, 50, 0).toString()}
         />
         <AutionItemComponent
           image={"https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg"}
+          time={new Date(2022, 11, 24, 10, 33, 30, 0).toString()}
         />
         <AutionItemComponent
           image={
             "https://image.shutterstock.com/image-illustration/modern-illustration-linocut-style-surreal-260nw-1913052853.jpg"
           }
-        />
-        <AutionItemComponent
-          image={"https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg"}
-        />
-        <AutionItemComponent
-          image={
-            "https://image.shutterstock.com/image-illustration/modern-illustration-linocut-style-surreal-260nw-1913052853.jpg"
-          }
+          time={new Date(2022, 12, 24, 10, 33, 50, 0).toString()}
         />
       </AutionContainer>
     </Wrapper>

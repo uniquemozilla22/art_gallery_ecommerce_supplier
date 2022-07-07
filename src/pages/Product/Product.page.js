@@ -6,13 +6,13 @@ import ProductAuction from "./Auction/ProductAuction.page";
 import ProductHomePage from "./Home/ProductHome.page";
 
 const ProductPage = () => {
-  const links = ["Auctions", "product"];
+  const links = ["auctions", "product"];
   return (
     <>
       <PageHeadingLink link={links} />
       <Routes>
         <Route path="/" element={<ProductHomePage />}></Route>
-        <Route path="/Auctions" element={<ProductAuction />}></Route>
+        <Route path="/auctions" element={<ProductAuction />}></Route>
         <Route path="/product" element={<ProductProductsPage />}></Route>
       </Routes>
     </>
