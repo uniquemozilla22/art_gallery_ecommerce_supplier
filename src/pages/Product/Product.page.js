@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router";
 import PageHeadingLink from "../../component/PageHeadingLinks/PageHeadingLinks.comp";
 import ProductProductsPage from "./AllProducts/Products.page";
 import ProductAuction from "./Auction/ProductAuction.page";
+import SingleAuctionPage from "./Auction/SingleAuction/SingleAuction.page";
 import ProductHomePage from "./Home/ProductHome.page";
 
 const ProductPage = () => {
@@ -13,7 +14,7 @@ const ProductPage = () => {
       <Routes>
         <Route path="/" element={<ProductHomePage />}></Route>
         <Route path="/auctions" element={<ProductAuction />}></Route>
-        <Route path="/auction/:id" element={<>Single Product Page</>}></Route>
+        <Route path="/auction/:id" element={<SingleAuctionPage />}></Route>
         <Route path="/product" element={<ProductProductsPage />}></Route>
       </Routes>
     </>
