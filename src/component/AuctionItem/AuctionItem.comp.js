@@ -40,7 +40,7 @@ const AutionItemComponent = ({ image, time }) => {
   }, 1000);
 
   const navigation = useNavigate();
-  const gotoProduct = (id) => navigation("./" + id);
+  const gotoProduct = (id) => navigation("/products/auction/" + id);
   return (
     <CardContainer onClick={(e) => gotoProduct(1)}>
       <Image component="img" image={image} alt="Paella dish" />

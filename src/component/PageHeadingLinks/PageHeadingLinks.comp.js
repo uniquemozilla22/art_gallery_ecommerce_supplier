@@ -1,7 +1,6 @@
 import { Tooltip } from "@mui/material";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import SidebarItem from "./../Sidebar/SidebarItem/SidebarItem";
 import classes from "./PageHeadingLinks.module.css";
 
 const PageHeadingLink = ({ link }) => {

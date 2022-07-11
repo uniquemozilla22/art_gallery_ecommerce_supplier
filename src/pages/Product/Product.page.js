@@ -13,6 +13,7 @@ const ProductPage = () => {
       <Routes>
         <Route path="/" element={<ProductHomePage />}></Route>
         <Route path="/auctions" element={<ProductAuction />}></Route>
+        <Route path="/auction/:id" element={<>Single Product Page</>}></Route>
         <Route path="/product" element={<ProductProductsPage />}></Route>
       </Routes>
     </>
