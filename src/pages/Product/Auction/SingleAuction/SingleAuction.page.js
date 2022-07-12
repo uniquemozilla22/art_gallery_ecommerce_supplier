@@ -20,7 +20,7 @@ const SingleAuctionPage = () => {
         <ActiveImageContainer>
           <ActiveImage src={activeImage} />
         </ActiveImageContainer>
-        <GroupImage>
+        <GroupImage className={"showOnHover"}>
           {ImageLinks.map((image, index) => (
             <SmallImage
               active={activeImage === image}
@@ -47,7 +47,9 @@ const ImageContainer = styled.div({
   gap: "1rem",
   justifyContent: "center",
   alignItems: "center",
-  "& > [GroupImage]": {},
+  ":hover .showOnHover": {
+    opacity: "1",
+  },
 });
 const ActiveImageContainer = styled.div({
   height: "80%",
@@ -59,6 +61,8 @@ const ActiveImageContainer = styled.div({
 const GroupImage = styled.div({
   display: "flex",
   gap: "1rem",
+  opacity: "0",
+  transition: "opacity 0.1s ease-in",
 });
 
 const ActiveImage = styled.img({
