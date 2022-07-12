@@ -4,26 +4,31 @@ import {
   HeartBrokenOutlined,
 } from "@mui/icons-material";
 import { fontSize } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SingleAuctionPage = () => {
+  const ImageLinks = [
+    "https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg",
+    "https://image.shutterstock.com/image-illustration/modern-illustration-linocut-style-surreal-260nw-1913052853.jpg",
+  ];
+  const [activeImage, setActiveImage] = useState(ImageLinks[0]);
+
   return (
     <Wrapper>
       <ImageContainer>
-        <ActiveImage
-          src={"https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg"}
-        />
+        <ActiveImageContainer>
+          <ActiveImage src={activeImage} />
+        </ActiveImageContainer>
         <GroupImage>
-          <SmallImage
-            src={"https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg"}
-          />
-          <SmallImage
-            src={"https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg"}
-          />
-          <SmallImage
-            src={"https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg"}
-          />
+          {ImageLinks.map((image, index) => (
+            <SmallImage
+              active={activeImage === image}
+              src={image}
+              key={index}
+              onClick={(e) => setActiveImage(image)}
+            />
+          ))}
         </GroupImage>
       </ImageContainer>
     </Wrapper>
@@ -32,31 +37,42 @@ const SingleAuctionPage = () => {
 
 const Wrapper = styled.div({});
 const ImageContainer = styled.div({
-  width: "100%",
+  width: "100vw",
   height: "90vh",
   background: "#transparent",
   position: "relative",
-  zIndex: "-1",
+  zIndex: "0",
+  display: "flex",
+  flexDirection: "column",
+  gap: "1rem",
+  justifyContent: "center",
+  alignItems: "center",
+  "& > [GroupImage]": {},
+});
+const ActiveImageContainer = styled.div({
+  height: "80%",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
 });
 
 const GroupImage = styled.div({
-  position: "absolute",
-  right: "50%",
-  bottom: "0",
-  transform: "translate(-50%,-50%)",
+  display: "flex",
+  gap: "1rem",
 });
 
 const ActiveImage = styled.img({
-  position: "absolute",
-  height: "80%",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%,-50%)",
   borderRadius: "5px",
 });
-const SmallImage = styled.img({
+const SmallImage = styled.img((props) => ({
   height: "100px",
   weight: "100px",
-});
+  borderRadius: "5px",
+  opacity: props.active ? "1" : "0.7",
+  transition: "opacity 0.2s ease-in",
+  ":hover": {
+    opacity: "1",
+  },
+}));
 
 export default SingleAuctionPage;
