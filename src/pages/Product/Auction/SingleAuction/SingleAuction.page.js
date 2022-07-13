@@ -3,6 +3,7 @@ import { SliderValueLabelUnstyled } from "@mui/base";
 import { Add, CancelOutlined, ThumbUpSharp } from "@mui/icons-material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Tooltip } from "@mui/material";
 
 const SingleAuctionPage = () => {
   const [data, setData] = useState({
@@ -46,9 +47,11 @@ const SingleAuctionPage = () => {
         <TitleContainer>
           <Title>
             <Heading>{data.name}</Heading>
-            <Like>
-              <ThumbUpSharp /> 99
-            </Like>
+            <Tooltip title={"Likes"}>
+              <Like>
+                <ThumbUpSharp /> 99
+              </Like>
+            </Tooltip>
           </Title>
           <Actions>
             <Button primary>
@@ -163,7 +166,12 @@ const TitleContainer = styled.div({
   margin: "1rem",
   alignItems: "center",
 });
-const Like = styled.div({});
+const Like = styled.div({
+  cursor: "pointer",
+  ":hover svg": {
+    color: "#676FA3",
+  },
+});
 const Title = styled.div({
   display: "flex",
   flexDirection: "column",
