@@ -1,15 +1,29 @@
 import styled from "@emotion/styled";
+import { SliderValueLabelUnstyled } from "@mui/base";
 import { Add, CancelOutlined, ThumbUpSharp } from "@mui/icons-material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SingleAuctionPage = () => {
-  const [data, setData] = useState({});
-  const ImageLinks = [
-    "https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg",
-    "https://image.shutterstock.com/image-illustration/modern-illustration-linocut-style-surreal-260nw-1913052853.jpg",
-  ];
-  const [activeImage, setActiveImage] = useState(ImageLinks[0]);
+  const [data, setData] = useState({
+    id: "1",
+    name: "One",
+    image: [
+      "https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg",
+      "https://image.shutterstock.com/image-illustration/modern-illustration-linocut-style-surreal-260nw-1913052853.jpg",
+    ],
+    likesCount: "99",
+    description:
+      "28 x21 In. ( 71.12 X 53.34 cm)    / Frame: 34 x 28 x 2 in (86.36 x 71.12 x5.06 cm) Singed   /    Dated , and Numberd in Pencil",
+    bid: {
+      ending: new Date().toDateString(),
+      estimated: [14000, 20000],
+      current: 20000,
+    },
+    tags: ["wallpaper", "Painting"],
+    category: ["wallpaper"],
+  });
+  const [activeImage, setActiveImage] = useState(data.image[0]);
 
   return (
     <Wrapper>
@@ -18,7 +32,7 @@ const SingleAuctionPage = () => {
           <ActiveImage src={activeImage} />
         </ActiveImageContainer>
         <GroupImage className={"showOnHover"}>
-          {ImageLinks.map((image, index) => (
+          {data.image.map((image, index) => (
             <SmallImage
               active={activeImage === image}
               src={image}
@@ -31,7 +45,7 @@ const SingleAuctionPage = () => {
       <ContentContainer>
         <TitleContainer>
           <Title>
-            <Heading>One</Heading>
+            <Heading>{data.name}</Heading>
             <Like>
               <ThumbUpSharp /> 99
             </Like>
@@ -49,36 +63,40 @@ const SingleAuctionPage = () => {
         </TitleContainer>
         <Information>
           <DetailsContainer>
-            <Detail>
-              28 x21 In. ( 71.12 X 53.34 cm)
-              <br /> Frame: 34 x 28 x 2 in (86.36 x 71.12 x5.06 cm) Singed{" "}
-              <br />
-              Dated , and Numberd in Pencil
-            </Detail>
+            <Detail>{data.description.split("/").join(`\n`)}</Detail>
             <BiddingDetail>
-              <BidInfo>
-                Ending <Span>4 Days 12 Hours 8 mins</Span>
-              </BidInfo>
-              <BidInfo>
-                Estimated : <Span>NRS 14,000 - NRS 20,000</Span>
-              </BidInfo>
-              <BidInfo>
-                Current <Span>NRS 20,000</Span>
-              </BidInfo>
+              {Object.keys(data.bid).map((key, value) => {
+                return (
+                  <BidInfo key={SliderValueLabelUnstyled}>
+                    {key}{" "}
+                    <Span>
+                      {typeof data.bid[key] === "object"
+                        ? data.bid[key].join(" - ")
+                        : data.bid[key]}
+                    </Span>
+                  </BidInfo>
+                );
+              })}
             </BiddingDetail>
             <Tags>
               <Container>
                 <DetailTitle>Tags</DetailTitle>
                 <Links>
-                  <Linked to={"wallpaper"}>Wallpaper</Linked>
-                  <Linked to={"wallpaper"}>Art</Linked>
-                  <Linked to={"wallpaper"}>Painting</Linked>
+                  {data.tags.map((link, index) => (
+                    <Linked key={index} to={link}>
+                      {link}
+                    </Linked>
+                  ))}
                 </Links>
               </Container>
               <Container>
                 <DetailTitle>Category</DetailTitle>
                 <Links>
-                  <Linked to={"wallpaper"}>Wallpaper</Linked>
+                  {data.category.map((link, index) => (
+                    <Linked key={index} to={link}>
+                      {link}
+                    </Linked>
+                  ))}
                 </Links>
               </Container>
             </Tags>
@@ -92,10 +110,19 @@ const SingleAuctionPage = () => {
 
 const Tags = styled.div({});
 const Container = styled.div({});
-const Links = styled.div({});
-const Linked = styled(Link, (props) => ({
-  color: "#2b2b2b",
-}));
+const Links = styled.div({
+  display: "flex",
+  justifyContent: "flex-start",
+  alignItems: "center",
+  gap: "1rem",
+  margin: "1rem 0",
+});
+const Linked = styled(Link)`
+  text-decoration: none;
+  color: #2b2b2b;
+  font-size: 12px;
+  text-transform: capitalize;
+`;
 
 const DetailTitle = styled.h4({});
 
@@ -133,10 +160,14 @@ const ContentContainer = styled.div({});
 const TitleContainer = styled.div({
   display: "flex",
   justifyContent: "space-between",
-  margin: "0 1rem",
+  margin: "1rem",
+  alignItems: "center",
 });
 const Like = styled.div({});
-const Title = styled.div({});
+const Title = styled.div({
+  display: "flex",
+  flexDirection: "column",
+});
 const Actions = styled.div({
   gap: "1rem",
 });
@@ -188,8 +219,16 @@ const Heading = styled.h2({
   fontWeight: "bold",
 });
 
-const BidInfo = styled.p({});
+const BidInfo = styled.p({
+  textTransform: "capitalize",
+  display: "flex",
+  justifyContent: "flex-start",
+  gap: "1rem",
+  fontWeight: "600",
+});
 
-const Span = styled.span({});
+const Span = styled.span({
+  fontWeight: "300",
+});
 
 export default SingleAuctionPage;
