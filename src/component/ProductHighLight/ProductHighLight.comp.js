@@ -32,7 +32,6 @@ const ProductSpots = ({ name, data }) => {
       </TitileSpots>
       <SpotsLists>
         {data.map((element, index) => {
-          console.log("elemet", element.user?.name);
           return (
             <DataContainer key={index}>
               <Left>

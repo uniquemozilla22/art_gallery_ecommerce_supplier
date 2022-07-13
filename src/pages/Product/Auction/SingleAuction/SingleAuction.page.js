@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SingleAuctionPage = () => {
+  const [data, setData] = useState({});
   const ImageLinks = [
     "https://m.media-amazon.com/images/I/713jNeMYLFL._SX425_.jpg",
     "https://image.shutterstock.com/image-illustration/modern-illustration-linocut-style-surreal-260nw-1913052853.jpg",
