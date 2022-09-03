@@ -1,0 +1,113 @@
+.address__container{}
+
+
+.address__container .title{
+    margin-bottom: 1rem;
+}
+
+.title h4{
+    font-weight: 500;
+font-size: 20px;
+}
+
+
+.address__container .add__wrapper{
+
+}
+
+.address__wrapper .address h2{
+    margin: 0;
+    font-weight: 700;
+font-size: 1.2rem;
+color: #000000;
+
+}
+
+
+
+.address__wrapper .address p{
+    margin: 0;
+    font-weight: 400;
+}
+
+.address{
+    position: relative;
+    width: 100%;
+
+}
+
+
+.address__wrapper .address:hover .icon{
+    visibility: visible;
+
+}
+
+.address__wrapper .address .icon{
+    position: absolute;
+    top:0;
+    right:0;
+    visibility: hidden;
+
+
+}
+
+
+.modal__body{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.form__modal{
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    gap:1rem;
+    width:50vw;
+    background-color:#E8EBFE;
+    padding:3rem;
+    border-radius: 20px;
+    align-items: center;
+}
+
+
+.form__modal input,.form__modal select,.form__modal textarea{
+    padding:1rem;
+    width:100%;
+    border-radius:20px;
+    border:none;
+    outline:none;
+    background-color:#f8f8f8;
+    opacity:0.8;
+    border:0.5 solid transparent;
+}
+
+.form__modal input:focus-within,
+.form__modal select:focus-within,
+.form__modal textarea:focus-within{
+    border:0.5px solid #4267B2;
+    opacity:1;
+    }
+
+
+.form__modal input[type="submit"]{
+    background-color:#4267B2;
+    color:#f8f8f8;
+    font-weight: 700;
+    align-self: stretch;
+}
+
+.form__modal > div{
+    width: 100%;
+    text-align: center;;
+    cursor: pointer;
+}
+
+@media screen and (max-width:660px) {
+    .form__modal{
+        width:90vw
+    }
+}
+
+

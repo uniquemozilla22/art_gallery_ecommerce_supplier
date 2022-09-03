@@ -1,0 +1,10 @@
+.single__data{
+    background:#E8EBFE;
+    padding:1rem;
+    border-radius: 20px;
+    flex:1;
+}
+
+.single__data:hover{
+    box-shadow:0 0 10px #2b2b2b25;
+}

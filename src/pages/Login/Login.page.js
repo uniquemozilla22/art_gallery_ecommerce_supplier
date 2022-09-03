@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import LoginForm from "../../component/LoginForm/LoginForm";
 import Banner from "./Banner/Banner.comp";
 import classes from "./Login.module.css";
 
-const Login = (props) => {
+const Login = () => {
+  console.log("Login page");
   return (
     <div className={classes.login__container}>
       <Banner />

@@ -1,0 +1,65 @@
+.recent__lists{
+    padding:2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #2b2b2b25
+}
+.recent__lists:hover{
+    box-shadow: 0 0 10px #2b2b2b50;
+}
+.recent__lists .title{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.recent__lists a{
+    text-decoration: none;
+    color:#2b2b2b;
+}
+
+.recent__lists .title h2{
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.item{
+    display: flex;
+    justify-content:flex-start;
+    align-items:center;
+    gap:1rem;
+    padding:1rem ;
+    border-bottom: 1px solid #EEF2FF;
+    margin: 0.5rem 0;
+}
+
+
+
+.item .info h5{
+font-weight: 700;
+font-size: 12px;
+color: #676FA3;
+}
+
+.item .info{
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    flex:1
+}
+
+
+
+
+.item .info p{
+    text-transform: capitalize;
+    margin-bottom:0;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.item .info p span{
+    text-transform: capitalize;
+    font-weight:800;
+    font-size: 0.8rem;
+    margin: 0 0.5rem 0 0 ;
+}

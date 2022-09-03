@@ -1,0 +1,70 @@
+.notification__container{
+    max-height: 70vh;
+    padding:3rem 2rem;
+    border-radius: 20px;
+    color:black;
+    overflow: hidden;
+    box-shadow:0 0 4px #2b2b2b25
+    
+}
+
+.notification__wrapper::-webkit-scrollbar{
+    width:5px;
+}
+
+.notification__wrapper::-webkit-scrollbar-thumb{
+    background-color:#2b2b2b25;
+}
+
+.notification__wrapper{
+    max-height:500px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.notification{
+    position: relative;
+    margin:0.5rem 0;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap:0.5rem;
+    padding:1rem 0;
+}
+
+.notification__container .title{
+    display:flex;
+    justify-content:space-between;
+}
+
+.notification__container .title h1{
+font-weight: 700;
+font-size: 1.4rem;
+cursor: pointer;
+}
+
+.notification__container svg:hover{
+    color:#FF5959;
+}
+
+.notification__container .title h1:hover{
+    text-decoration: underline;
+}
+
+.notification >p{
+    position: absolute;
+    top:0;
+    right:0;
+    font-size:1rem;
+
+}
+
+.notification .content > h6{
+    margin: 0;
+}
+
+.notification .content >p{
+    font-size:0.9rem;
+    margin: 0;
+    color:#C4C4C4;
+}

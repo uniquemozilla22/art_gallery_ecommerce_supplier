@@ -1,46 +1,58 @@
 import axiosBase from "../../../../axiosBase";
+import { postErrorHandle } from "../../../handleError/Error";
 import { LOGIN } from "../../../Types";
 import { showLoading, hideLoading } from "../../Loading/Loading";
-import {
-  ErrorMessage,
-  SuccessMessage,
-  WarningMessage,
-} from "../../Message/Message.action";
+import { SuccessMessage } from "../../Message/Message.action";
+import { LOGOUT } from "./../../../Types";
 
 const LoginAction = (payload) => {
   return (dispatch) => {
     dispatch(showLoading());
     LoginPost(payload)
       .then((res) => {
+        console.log(res.data);
         dispatch(hideLoading());
-        dispatch(SuccessMessage({ message: res.data.message }));
-        return dispatch({
+        dispatch(
+          SuccessMessage({
+            title: "Login",
+            message: res.data.message,
+          })
+        );
+        dispatch({
           type: LOGIN,
           payload: {
-            token: res.data.token,
+            ...res.data,
           },
         });
       })
       .catch((err) => {
-        dispatch(hideLoading());
-        if (err.response === undefined) {
-          dispatch(
-            ErrorMessage({
-              message: "Network Error! Check Your Internet Connection",
-            })
-          );
-        }
-        if (err.response.status === 400) {
-          dispatch(WarningMessage({ message: err.response.data.message }));
-        } else {
-          dispatch(ErrorMessage({ message: err.response.data.message }));
-        }
+        postErrorHandle(dispatch, "Login Error", err);
       });
   };
 };
 
+export const LogoutAction = () => {
+  return async (dispatch, getState) => {
+    dispatch(showLoading());
+    try {
+      dispatch(hideLoading());
+      const logout = await LogoutPost(getState().user.token);
+      console.log(logout);
+      dispatch({ type: LOGOUT });
+      return true;
+    } catch (error) {
+      console.log(error);
+      return postErrorHandle(dispatch, "Logout Error", error);
+    }
+  };
+};
+
 const LoginPost = (payload) => {
-  return axiosBase.post("/auth/login", payload);
+  return axiosBase().post("login", payload);
+};
+
+const LogoutPost = (token) => {
+  return axiosBase(token).post("logout");
 };
 
 export default LoginAction;

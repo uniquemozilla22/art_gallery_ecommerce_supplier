@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import classes from "./LoginForm.module.css";
 import { Link } from "react-router-dom";
 import { FacebookOutlined, Google } from "@mui/icons-material";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import ForgotPassword from "../forgotPassword/ForgotPassword";
-import { Fade } from "react-reveal";
-import LoginAction from "../../store/actions/Authentication/Login/Login.action";
+import LoginAction, {
+  LogoutAction,
+} from "../../store/actions/Authentication/Login/Login.action";
 import ForgotPasswordAction from "../../store/actions/Authentication/ForgotPassword/ForgotPassword.action";
+import LoginSocialButton from "../SocialLogin/LoginSocial.button";
+import SocialAuthentication from "../../store/actions/SocialLogin/Social.authentication";
+import { postErrorHandle } from "../../store/handleError/Error";
 
 const LoginForm = (props) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({ email: "", password: "" });
   const [validation, setValidation] = useState({
     email: { validated: null, message: "" },
@@ -80,8 +85,26 @@ const LoginForm = (props) => {
     return props.loginModal ? classes.login__modal : classes.login__form;
   };
 
+  const authenticate = async (res) => await dispatch(SocialAuthentication(res));
+
+  const googleSuccess = async (res) => {
+    console.log("google Success => ", res);
+    const success = await authenticate(res);
+    return success;
+  };
+
+  const googleFailure = (err) => {
+    console.log("google Error => ", err);
+    postErrorHandle(dispatch, "Google Login Error", err);
+  };
+
+  const facebookSuccess = (user) => authenticate(user);
+  const facebookFailure = (error) => {
+    postErrorHandle(dispatch, "Facebook Login Error", error);
+  };
+
   return (
-    <Fade>
+    <>
       <div className={classNameContainer()}>
         <div className={classes.title__login}>
           <h1>Login.</h1>
@@ -132,12 +155,31 @@ const LoginForm = (props) => {
           </Link>
           <p>Use Alternatives</p>
           <div className={classes.social__alternatives}>
-            <div className={classes.icons}>
-              <FacebookOutlined />
-            </div>
-            <div className={classes.icons}>
-              <Google onClick={(e) => props.GoogleLogin()} />
-            </div>
+            <LoginSocialButton
+              provider="facebook"
+              appId="467440698300186"
+              autoLoad={false}
+              onLoginSuccess={facebookSuccess}
+              onLoginFailure={facebookFailure}
+              fields="name,email,picture"
+              scope="public_profile,email,user_friends"
+            >
+              <div className={classes.icons}>
+                <FacebookOutlined />
+              </div>
+            </LoginSocialButton>
+
+            <LoginSocialButton
+              provider="google"
+              appId="38178867963-cig24gdoohr1le5ia7v3bcjfeelb4hco.apps.googleusercontent.com"
+              onLoginSuccess={googleSuccess}
+              onLoginFailure={googleFailure}
+              scope="email"
+            >
+              <div className={classes.icons}>
+                <Google />
+              </div>
+            </LoginSocialButton>
           </div>
         </div>
       </div>
@@ -146,7 +188,7 @@ const LoginForm = (props) => {
         toggleForgetPassword={() => props.toggleForgetPassword()}
         sendMail={props.sendMail}
       />
-    </Fade>
+    </>
   );
 };
 const mapStateToProps = (state, ownProps) => {

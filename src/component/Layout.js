@@ -1,43 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
+import { connect, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import MessageHandle from "./ErrorHandle/ErrorHandle";
 import Sidebar from "./Sidebar/Sidebar";
 import SpinnerComp from "./Spinner/Spinner";
 
 const Layout = (props) => {
+  const tokenRedux = useSelector((state) => state.user.token);
   const location = useLocation();
   const navigate = useNavigate();
-  const SidebarRestricted = ["/login", "/register", "/users/resetPassword"];
-  const [token, setToken] = useState(props.user.token);
+  const SidebarRestricted = useMemo(() => {
+    return ["/login", "/register", "/users/resetPassword"];
+  }, []);
+  const [token, setToken] = useState(tokenRedux);
 
   useEffect(() => {
-    setToken(props.user.token);
-    if (props.user.token !== null) {
+    setToken(tokenRedux);
+    if (token !== null) {
       if (SidebarRestricted.includes(location.pathname)) {
         navigate("/");
       }
+    } else {
+      navigate("/login");
     }
-  }, [props.user.token]);
+  }, [SidebarRestricted, location.pathname, navigate, token, tokenRedux]);
+
   return (
     <>
-      {!SidebarRestricted.includes(location.pathname) ? <Sidebar /> : null}
-      <MessageHandle {...props.message} />
-      <SpinnerComp {...props.loader} />
-      {props.children}
+      {!SidebarRestricted.includes(location.pathname) ? (
+        <Sidebar>
+          <div style={{ marginLeft: "80px" }}>{props.children}</div>
+        </Sidebar>
+      ) : (
+        <>{props.children}</>
+      )}
+      <MessageHandle />
+      <SpinnerComp />
     </>
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    ...state,
-    ownProps,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+export default Layout;

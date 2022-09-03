@@ -1,0 +1,28 @@
+.addPaymentMethod{
+    width: 100%;
+}
+
+
+
+.addPaymentMethod .title {
+font-weight: 400;
+font-size: 16px;
+}
+
+.addPaymentMethod .title h3{
+
+    font-weight: 700;
+    font-size:20px;
+    margin: 0;
+}
+
+.addPaymentMethod .link_accounts{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap:1rem;
+    margin: 2rem 0 ;
+    flex-wrap:wrap;
+    width: 100%;
+
+}

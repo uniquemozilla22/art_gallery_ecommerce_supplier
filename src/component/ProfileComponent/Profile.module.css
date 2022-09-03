@@ -1,0 +1,30 @@
+.profile__component{
+    min-height:100vh;
+}
+
+
+.profile__component .profileImage{
+    margin-bottom: 200px;
+}
+
+
+.profile__component .profileDetails{
+    display:flex;
+    justify-content:flex-start;
+    gap:2rem;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    width:100%;
+}
+
+
+.profile__component .profileDetails >div{
+    background-color:#EEF2FF;
+    padding:2rem;
+    border-radius: 20px;
+    max-width:100%;
+    flex-wrap: wrap;
+    flex-basis: 45%  ;
+    align-items: stretch;
+}
+

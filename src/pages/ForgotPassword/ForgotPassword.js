@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import ForgetPasswordForm from "../../component/ForgotPasswordForm/ForgetPasswordForm";
 import classes from "./ForgetPassword.module.css";
 import { useParams } from "react-router";
@@ -17,17 +17,24 @@ const ForgetPassword = (props) => {
   }, []);
 
   return (
-    <div className={classes.forget__password__container}>
-      <ForgetPasswordForm
-        id={id}
-        token={token}
-        postPasswords={(id, token, new_password, confirm_password) =>
-          dispatch(
-            ForgotChangePassword({ id, token, new_password, confirm_password })
-          )
-        }
-      />
-    </div>
+    <Suspense>
+      <div className={classes.forget__password__container}>
+        <ForgetPasswordForm
+          id={id}
+          token={token}
+          postPasswords={(id, token, new_password, confirm_password) =>
+            dispatch(
+              ForgotChangePassword({
+                id,
+                token,
+                new_password,
+                confirm_password,
+              })
+            )
+          }
+        />
+      </div>
+    </Suspense>
   );
 };
 
